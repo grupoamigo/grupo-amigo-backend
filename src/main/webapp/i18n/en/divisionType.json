@@ -1,0 +1,14 @@
+{
+  "grupoAmigoBackendApp": {
+    "DivisionType": {
+      "null": "",
+      "INTERMODAL": "INTERMODAL",
+      "FERTILIZANTES": "FERTILIZANTES",
+      "POLIETILENO": "POLIETILENO",
+      "TUBERIA": "TUBERIA",
+      "LACTEOS": "LACTEOS",
+      "CERVEZA": "CERVEZA",
+      "SAGARPA": "SAGARPA"
+    }
+  }
+}

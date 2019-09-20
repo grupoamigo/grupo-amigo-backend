@@ -1,0 +1,67 @@
+{
+    "name": "Manouver",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "ServiceUnitType",
+            "fieldValues": "TM,KG,CONTENEDOR_20TM,CONTENEDOR_40TM,M2,TARIMA,KM",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "division",
+            "fieldType": "DivisionType",
+            "fieldValues": "INTERMODAL,FERTILIZANTES,POLIETILENO,TUBERIA,LACTEOS,CERVEZA,SAGARPA"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "serviceQuote",
+            "otherEntityRelationshipName": "manouver",
+            "relationshipName": "serviceQuotes",
+            "otherEntityField": "title",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "manouvers",
+            "relationshipName": "company",
+            "otherEntityField": "legalName",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "service",
+            "otherEntityRelationshipName": "manouver",
+            "relationshipName": "service",
+            "otherEntityField": "title",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190920193525",
+    "entityTableName": "manouver",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

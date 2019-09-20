@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Company.
+    -->
+    <changeSet id="20190920193521-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="client_id"
+                                 baseTableName="company"
+                                 constraintName="fk_company_client_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="client"/>
+
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="company_contact_cards"
+                                 constraintName="fk_company_contact_cards_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+
+        <addForeignKeyConstraint baseColumnNames="contact_cards_id"
+                                 baseTableName="company_contact_cards"
+                                 constraintName="fk_company_contact_cards_contact_cards_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_card"/>
+        
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="company_services"
+                                 constraintName="fk_company_services_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+
+        <addForeignKeyConstraint baseColumnNames="services_id"
+                                 baseTableName="company_services"
+                                 constraintName="fk_company_services_services_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service"/>
+        
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="company_locations"
+                                 constraintName="fk_company_locations_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+
+        <addForeignKeyConstraint baseColumnNames="locations_id"
+                                 baseTableName="company_locations"
+                                 constraintName="fk_company_locations_locations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="location"/>
+        
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="company_manouvers"
+                                 constraintName="fk_company_manouvers_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+
+        <addForeignKeyConstraint baseColumnNames="manouvers_id"
+                                 baseTableName="company_manouvers"
+                                 constraintName="fk_company_manouvers_manouvers_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="manouver"/>
+        
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="company_contract"
+                                 constraintName="fk_company_contract_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+
+        <addForeignKeyConstraint baseColumnNames="contract_id"
+                                 baseTableName="company_contract"
+                                 constraintName="fk_company_contract_contract_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contract"/>
+        
+    </changeSet>
+</databaseChangeLog>

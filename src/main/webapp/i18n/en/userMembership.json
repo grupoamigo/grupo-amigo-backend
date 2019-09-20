@@ -1,0 +1,22 @@
+{
+  "grupoAmigoBackendApp": {
+    "userMembership": {
+      "home": {
+        "title": "User Memberships",
+        "createLabel": "Create a new User Membership",
+        "createOrEditLabel": "Create or edit a User Membership",
+        "notFound": "No User Memberships found"
+      },
+      "created": "A new User Membership is created with identifier {{ param }}",
+      "updated": "A User Membership is updated with identifier {{ param }}",
+      "deleted": "A User Membership is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Membership {{ id }}?"
+      },
+      "detail": {
+        "title": "User Membership"
+      },
+      "phone": "Phone"
+    }
+  }
+}

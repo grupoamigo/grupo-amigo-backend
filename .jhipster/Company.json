@@ -1,0 +1,98 @@
+{
+    "name": "Company",
+    "fields": [
+        {
+            "fieldName": "legalName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "taxId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "CompanyType",
+            "fieldValues": "NAVIERA,TRANSPORTISTA,PERSONA_MORAL,PERSONA_FISICA,CONTRATISTA,AGENTE_ADUANAL,GOBIERNO,CENTRO_DE_DISTRIBUCION",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "hirer",
+            "relationshipName": "client",
+            "otherEntityField": "legalName",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "contactCard",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "contactCards",
+            "otherEntityField": "value",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "service",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "services",
+            "otherEntityField": "title",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "locations",
+            "otherEntityField": "address",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "manouver",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "manouvers",
+            "otherEntityField": "title",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "contract",
+            "otherEntityRelationshipName": "supplier",
+            "relationshipName": "contract",
+            "otherEntityField": "title",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "membership",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "membership",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190920193521",
+    "entityTableName": "company",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

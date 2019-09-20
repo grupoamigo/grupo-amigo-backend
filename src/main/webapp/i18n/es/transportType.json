@@ -1,0 +1,9 @@
+{
+  "grupoAmigoBackendApp": {
+    "TransportType": {
+      "null": "",
+      "CAMION": "CAMION",
+      "FFCC": "FFCC"
+    }
+  }
+}

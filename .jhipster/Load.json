@@ -1,0 +1,47 @@
+{
+    "name": "Load",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "LoadType",
+            "fieldValues": "CONTENEDOR,GRANEL,PALLETS,TUBERIA,CERVEZA,LECHE,POLIETILENO",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "uniqueId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "seal",
+            "otherEntityRelationshipName": "load",
+            "relationshipName": "seal",
+            "otherEntityField": "uniqueId",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "manouverRequest",
+            "otherEntityRelationshipName": "load",
+            "relationshipName": "manouverRequest",
+            "otherEntityField": "title",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190920193527",
+    "entityTableName": "load",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

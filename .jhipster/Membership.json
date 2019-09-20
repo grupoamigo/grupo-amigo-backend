@@ -1,0 +1,57 @@
+{
+    "name": "Membership",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "CurrencyType",
+            "fieldValues": "MXN,USD"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "expires",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "MembershipType",
+            "fieldValues": "CEO,VP,JEFE_DE_DIVISION,SUPERVISOR,INSPECTOR,VIGILANTE,CHOFER,ADMINISTRATIVO"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "membership",
+            "relationshipName": "company",
+            "otherEntityField": "legalName",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "membership",
+            "relationshipName": "user",
+            "otherEntityField": "email"
+        }
+    ],
+    "changelogDate": "20190920193523",
+    "entityTableName": "membership",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

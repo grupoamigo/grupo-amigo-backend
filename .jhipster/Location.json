@@ -1,0 +1,75 @@
+{
+    "name": "Location",
+    "fields": [
+        {
+            "fieldName": "address",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lng",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "countryCode",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "countryCode",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "stateCode",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "stateCode",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "manouverRequest",
+            "otherEntityRelationshipName": "origin",
+            "relationshipName": "manouverRequestOrigin",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "manouverRequest",
+            "otherEntityRelationshipName": "destiny",
+            "relationshipName": "manouverRequestDestiny",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "locations",
+            "relationshipName": "client",
+            "otherEntityField": "legalName",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "locations",
+            "relationshipName": "company",
+            "otherEntityField": "legalName",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190920193530",
+    "entityTableName": "location",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

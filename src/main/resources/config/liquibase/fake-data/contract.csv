@@ -1,0 +1,11 @@
+id;type;title;legal_prose;signature;signature_content_type;contract_file;contract_file_content_type;digital_fingerprint;date_signed;expiration_date;status
+1;EMPLEADO;utilisation;out-of-the-box Pizza;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;systems Sleek Wooden Towels Clothing;2019-09-20T03:54:54;2019-09-20;TERMINADO
+2;SOLICITU_DE_MANIOBRA;Practical Steel Mouse;indexing;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;XSS;2019-09-20T02:08:29;2019-09-20;ACTIVO
+3;TERMINOS_Y_CONDICIONES;Clothing target;HDD Forward;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;withdrawal Planner;2019-09-20T12:46:51;2019-09-19;TERMINADO
+4;PRESTACION_DE_SERVICIO;interface Investor Tuna;redefine;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Shirt SDD;2019-09-20T07:46:43;2019-09-20;CANCELADO
+5;INSPECCION;payment Rustic;envisioneer Coordinator;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;SMTP;2019-09-20T19:22:35;2019-09-20;CANCELADO
+6;INSPECCION;Gloves Jordan;Uganda Shilling Cotton;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Persevering Personal Loan Account;2019-09-20T02:37:51;2019-09-20;PAUSADO
+7;TERMINOS_Y_CONDICIONES;Kuwait optical;online Utah COM;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Botswana;2019-09-20T18:46:22;2019-09-20;PAUSADO
+8;CONFIDENCIALIDAD;Borders;Congolese Franc;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Architect Developer;2019-09-20T19:28:29;2019-09-20;PAUSADO
+9;SOLICITUD_DE_SERVICIO;open-source Burundi;Music;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Metal;2019-09-19T21:02:16;2019-09-20;FIRMADO
+10;TERMINOS_Y_CONDICIONES;Qatari Rial;Representative whiteboard Health;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;Auto Loan Account;2019-09-19T22:44:23;2019-09-19;TERMINADO

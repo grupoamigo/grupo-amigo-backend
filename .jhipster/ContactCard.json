@@ -1,0 +1,47 @@
+{
+    "name": "ContactCard",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "ContactType",
+            "fieldValues": "TELEFONO,EMAIL,WEBSITE,FACEBOOK,TWITTER,INSTAGRAM,LINKEDIN,WHATSAPP",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "contactCards",
+            "relationshipName": "client",
+            "otherEntityField": "legalName",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "contactCards",
+            "relationshipName": "company",
+            "otherEntityField": "legalName",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190920193533",
+    "entityTableName": "contact_card",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

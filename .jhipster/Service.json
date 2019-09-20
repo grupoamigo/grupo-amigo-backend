@@ -1,0 +1,86 @@
+{
+    "name": "Service",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "ServiceType",
+            "fieldValues": "CARGA,DESCARGA,TRANSPORTE,IMPORTACION,EXPORTACION,ALMACENAJE,INSPECCION,REPARACION,CROSS_DOCK",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "ServiceUnitType",
+            "fieldValues": "TM,KG,CONTENEDOR_20TM,CONTENEDOR_40TM,M2,TARIMA,KM",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "StatusType",
+            "fieldValues": "PROCESANDO,CONFIRMADO,ACTIVO,EN_ESPERA,TERMINADO,CANCELADO",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "manouver",
+            "otherEntityRelationshipName": "service",
+            "relationshipName": "manouver",
+            "otherEntityField": "title",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "contract",
+            "otherEntityRelationshipName": "service",
+            "relationshipName": "contract",
+            "otherEntityField": "title",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "services",
+            "relationshipName": "company",
+            "otherEntityField": "legalName",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "serviceRequest",
+            "otherEntityRelationshipName": "services",
+            "relationshipName": "serviceRequest",
+            "otherEntityField": "title",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190920193534",
+    "entityTableName": "service",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

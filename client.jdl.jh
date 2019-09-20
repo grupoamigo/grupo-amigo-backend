@@ -1,0 +1,177 @@
+enum CompanyType { NAVIERA, TRANSPORTISTA, PERSONA_MORAL, PERSONA_FISICA, CONTRATISTA, AGENTE_ADUANAL, GOBIERNO, CENTRO_DE_DISTRIBUCION }
+enum ContractType { PRESTACION_DE_SERVICIO, TERMINOS_Y_CONDICIONES, DECISION_INTERNA, SOLICITUD_DE_SERVICIO, SOLICITU_DE_MANIOBRA, INSPECCION, EMPLEADO, CONFIDENCIALIDAD  }
+enum ServiceType { CARGA, DESCARGA, TRANSPORTE, IMPORTACION, EXPORTACION, ALMACENAJE, INSPECCION, REPARACION, CROSS_DOCK }
+enum ServiceUnitType { TM, KG, CONTENEDOR_20TM, CONTENEDOR_40TM, M2, TARIMA, KM}
+enum ContactType { TELEFONO, EMAIL, WEBSITE, FACEBOOK, TWITTER, INSTAGRAM, LINKEDIN, WHATSAPP }
+enum StatusType { PROCESANDO, CONFIRMADO, ACTIVO, EN_ESPERA, TERMINADO, CANCELADO }
+enum ContractStatusType { EMITIDO, FIRMADO, ACTIVO, CANCELADO, PAUSADO, TERMINADO }
+enum ClientStatusType { ACTIVO, SOLICITUD, APROBADO, VERIFICADO, DECLINADO, CANCELADO, PAUSADO }
+enum CurrencyType { MXN, USD }
+enum DivisionType { INTERMODAL, FERTILIZANTES, POLIETILENO, TUBERIA, LACTEOS, CERVEZA, SAGARPA }
+enum LoadType { CONTENEDOR, GRANEL, PALLETS, TUBERIA, CERVEZA, LECHE, POLIETILENO }
+enum TransportType { CAMION, FFCC }
+enum MembershipType { CEO, VP, JEFE_DE_DIVISION, SUPERVISOR, INSPECTOR, VIGILANTE, CHOFER, ADMINISTRATIVO }
+
+entity Company {
+	legalName String required
+    taxId String required
+    type CompanyType required
+    logo ImageBlob
+}
+
+entity UserMembership {
+    phone String
+}
+
+entity Membership {
+    title String
+    price Float
+    currency CurrencyType 
+    created Instant
+    expires LocalDate
+    type MembershipType
+}
+
+entity Client {
+    legalName String required
+    memberSince Instant
+    status ClientStatusType
+    internalNotes String
+}
+
+entity Manouver {
+    title String required
+    description String required
+    unit ServiceUnitType required
+    division DivisionType
+}
+
+entity ManouverRequest {
+    title String required
+    description String required
+    date LocalDate required
+    transport TransportType
+    price Float
+    currency CurrencyType
+    qrCode ImageBlob
+}
+
+entity Load {
+    type LoadType required
+    uniqueId String required
+}
+
+entity Seal {
+    issuer String required
+    uniqueId String required
+}
+
+entity ExtraField {
+    name String required
+    value String required
+}
+
+entity Location {
+    address String required
+    lat String
+    lng String
+}
+
+entity CountryCode {
+    code String required
+    name String
+}
+
+entity StateCode {
+    code String required
+    name String
+}
+
+entity ContactCard {
+    type  ContactType required
+    value String required
+}
+
+entity Service {
+    title String required
+    description String required
+    type ServiceType required
+    unit ServiceUnitType required
+    status StatusType required
+}
+
+entity ServiceQuote {
+    title String required
+    description String required
+    quantity Integer
+    price Float
+    unit ServiceUnitType required
+    expeditionDate Instant
+    expirationDate LocalDate
+    status StatusType
+    currency CurrencyType required
+    approvedBy String
+    qrCode ImageBlob
+}
+
+entity ServiceRequest {
+	title String required
+    description String required
+    dateRequested Instant required
+    dateBegin LocalDate required
+    dateEnd LocalDate 
+    status StatusType
+}
+
+entity Contract {
+	type ContractType required
+    title String required
+    legalProse String required
+    signature ImageBlob 
+    contractFile Blob 
+    digitalFingerprint String 
+    dateSigned Instant 
+    expirationDate LocalDate
+    status ContractStatusType
+}
+
+relationship OneToOne {
+    CountryCode{location(address)} to Location{countryCode(name)}
+    StateCode{location(address)} to Location{stateCode(name)}
+    ServiceRequest{client(legalName)} to Client{serviceRequest(title)}
+    Contract{serviceQuote(title)} to ServiceQuote{contract(title)}
+    ServiceRequest{serviceQuote(title)} to ServiceQuote{serviceRequest(title)}
+    Company{client(legalName)} to Client{hirer(legalName)}
+    
+    ManouverRequest{origin(address)} to Location{manouverRequestOrigin(title)} 
+    ManouverRequest{destiny(address)} to Location{manouverRequestDestiny(title)}
+    Membership{company(legalName)} to Company{membership(user)}
+}
+
+relationship ManyToOne {
+    ManouverRequest{manouverClient(legalName)} to Client{manouverRequestClient(title)}
+    Membership{user(email)} to User{membership(title)}   
+}
+/**
+ * Many to one relationship.
+ */
+
+relationship ManyToMany {
+    Client{contactCards(value)} to ContactCard{client(legalName)}
+    Company{contactCards(value)} to ContactCard{company(legalName)}
+    Client{locations(address)} to Location{client(legalName)}
+    Client{manouverRequest(title)} to ManouverRequest{client(legalName)}
+    ServiceQuote{manouver(title)} to Manouver{serviceQuotes(title)}
+    
+    ManouverRequest{load(uniqueId)} to Load{manouverRequest(title)}
+    Load{seal(uniqueId)} to Seal{load(uniqueId)}
+    Contract{service(title)} to Service{contract(title)}
+    Company{services(title)} to Service{company(legalName)}
+    Company{locations(address)} to Location{company(legalName)}
+    Company{manouvers(title)} to Manouver{company(legalName)}
+    Company{contract(title)} to Contract{supplier(legalName)}
+    Client{contract(title)} to Contract{client(legalName)}
+    Client{serviceQuote(title)} to ServiceQuote{client(legalName)}
+    ServiceRequest{services(title)} to Service{serviceRequest(title)}
+    Service{manouver(title)} to Manouver{service(title)}
+}

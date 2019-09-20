@@ -14,6 +14,34 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193521_added_entity_Company.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193522_added_entity_UserMembership.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193523_added_entity_Membership.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193524_added_entity_Client.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193525_added_entity_Manouver.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193526_added_entity_ManouverRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193527_added_entity_Load.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193528_added_entity_Seal.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193529_added_entity_ExtraField.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193530_added_entity_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193531_added_entity_CountryCode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193532_added_entity_StateCode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193533_added_entity_ContactCard.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193534_added_entity_Service.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193535_added_entity_ServiceQuote.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193536_added_entity_ServiceRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193537_added_entity_Contract.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190920193521_added_entity_constraints_Company.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193523_added_entity_constraints_Membership.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193524_added_entity_constraints_Client.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193526_added_entity_constraints_ManouverRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193527_added_entity_constraints_Load.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193531_added_entity_constraints_CountryCode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193532_added_entity_constraints_StateCode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193534_added_entity_constraints_Service.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193535_added_entity_constraints_ServiceQuote.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193536_added_entity_constraints_ServiceRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190920193537_added_entity_constraints_Contract.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

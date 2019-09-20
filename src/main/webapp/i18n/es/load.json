@@ -1,0 +1,25 @@
+{
+  "grupoAmigoBackendApp": {
+    "load": {
+      "home": {
+        "title": "Loads",
+        "createLabel": "Crear nuevo Load",
+        "createOrEditLabel": "Crear o editar Load",
+        "notFound": "No Loads found"
+      },
+      "created": "Un nuevo Load ha sido creado con el identificador {{ param }}",
+      "updated": "Un Load ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Load ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Load {{ id }}?"
+      },
+      "detail": {
+        "title": "Load"
+      },
+      "type": "Type",
+      "uniqueId": "Unique Id",
+      "seal": "Seal",
+      "manouverRequest": "Manouver Request"
+    }
+  }
+}

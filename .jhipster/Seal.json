@@ -1,0 +1,38 @@
+{
+    "name": "Seal",
+    "fields": [
+        {
+            "fieldName": "issuer",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "uniqueId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "load",
+            "otherEntityRelationshipName": "seal",
+            "relationshipName": "load",
+            "otherEntityField": "uniqueId",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190920193528",
+    "entityTableName": "seal",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

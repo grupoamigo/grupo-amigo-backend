@@ -39,7 +39,9 @@
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
-    "blueprints": []
+    "blueprints": [],
+    "herokuAppName": "grupo-amigo-backend",
+    "herokuDeployType": "git"
   },
   "git-provider": "GitHub",
   "git-company": "grupoamigo",

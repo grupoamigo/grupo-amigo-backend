@@ -1,0 +1,95 @@
+{
+    "name": "ManouverRequest",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "transport",
+            "fieldType": "TransportType",
+            "fieldValues": "CAMION,FFCC"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "CurrencyType",
+            "fieldValues": "MXN,USD"
+        },
+        {
+            "fieldName": "qrCode",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "manouverRequestOrigin",
+            "relationshipName": "origin",
+            "otherEntityField": "address",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "manouverRequestDestiny",
+            "relationshipName": "destiny",
+            "otherEntityField": "address",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "manouverRequestClient",
+            "relationshipName": "manouverClient",
+            "otherEntityField": "legalName"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "load",
+            "otherEntityRelationshipName": "manouverRequest",
+            "relationshipName": "load",
+            "otherEntityField": "uniqueId",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "manouverRequest",
+            "relationshipName": "client",
+            "otherEntityField": "legalName",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190920193526",
+    "entityTableName": "manouver_request",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

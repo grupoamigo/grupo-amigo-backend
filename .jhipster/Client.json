@@ -1,0 +1,96 @@
+{
+    "name": "Client",
+    "fields": [
+        {
+            "fieldName": "legalName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "memberSince",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ClientStatusType",
+            "fieldValues": "ACTIVO,SOLICITUD,APROBADO,VERIFICADO,DECLINADO,CANCELADO,PAUSADO"
+        },
+        {
+            "fieldName": "internalNotes",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "contactCard",
+            "otherEntityRelationshipName": "client",
+            "relationshipName": "contactCards",
+            "otherEntityField": "value",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "client",
+            "relationshipName": "locations",
+            "otherEntityField": "address",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "manouverRequest",
+            "otherEntityRelationshipName": "client",
+            "relationshipName": "manouverRequest",
+            "otherEntityField": "title",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "contract",
+            "otherEntityRelationshipName": "client",
+            "relationshipName": "contract",
+            "otherEntityField": "title",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "serviceQuote",
+            "otherEntityRelationshipName": "client",
+            "relationshipName": "serviceQuote",
+            "otherEntityField": "title",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "serviceRequest",
+            "otherEntityRelationshipName": "client",
+            "relationshipName": "serviceRequest",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "client",
+            "relationshipName": "hirer",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "manouverRequest",
+            "otherEntityRelationshipName": "manouverClient",
+            "relationshipName": "manouverRequestClient"
+        }
+    ],
+    "changelogDate": "20190920193524",
+    "entityTableName": "client",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

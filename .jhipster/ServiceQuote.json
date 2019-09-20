@@ -1,0 +1,106 @@
+{
+    "name": "ServiceQuote",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "ServiceUnitType",
+            "fieldValues": "TM,KG,CONTENEDOR_20TM,CONTENEDOR_40TM,M2,TARIMA,KM",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "expeditionDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "expirationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "StatusType",
+            "fieldValues": "PROCESANDO,CONFIRMADO,ACTIVO,EN_ESPERA,TERMINADO,CANCELADO"
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "CurrencyType",
+            "fieldValues": "MXN,USD",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "approvedBy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qrCode",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "manouver",
+            "otherEntityRelationshipName": "serviceQuotes",
+            "relationshipName": "manouver",
+            "otherEntityField": "title",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "contract",
+            "otherEntityRelationshipName": "serviceQuote",
+            "relationshipName": "contract",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "serviceRequest",
+            "otherEntityRelationshipName": "serviceQuote",
+            "relationshipName": "serviceRequest",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "serviceQuote",
+            "relationshipName": "client",
+            "otherEntityField": "legalName",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190920193535",
+    "entityTableName": "service_quote",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

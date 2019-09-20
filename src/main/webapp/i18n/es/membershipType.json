@@ -1,0 +1,15 @@
+{
+  "grupoAmigoBackendApp": {
+    "MembershipType": {
+      "null": "",
+      "CEO": "CEO",
+      "VP": "VP",
+      "JEFE_DE_DIVISION": "JEFE_DE_DIVISION",
+      "SUPERVISOR": "SUPERVISOR",
+      "INSPECTOR": "INSPECTOR",
+      "VIGILANTE": "VIGILANTE",
+      "CHOFER": "CHOFER",
+      "ADMINISTRATIVO": "ADMINISTRATIVO"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "grupoAmigoBackendApp": {
+    "manouverRequest": {
+      "home": {
+        "title": "Manouver Requests",
+        "createLabel": "Crear nuevo Manouver Request",
+        "createOrEditLabel": "Crear o editar Manouver Request",
+        "notFound": "No Manouver Requests found"
+      },
+      "created": "Un nuevo Manouver Request ha sido creado con el identificador {{ param }}",
+      "updated": "Un Manouver Request ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Manouver Request ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Manouver Request {{ id }}?"
+      },
+      "detail": {
+        "title": "Manouver Request"
+      },
+      "title": "Title",
+      "description": "Description",
+      "date": "Date",
+      "transport": "Transport",
+      "price": "Price",
+      "currency": "Currency",
+      "qrCode": "Qr Code",
+      "origin": "Origin",
+      "destiny": "Destiny",
+      "manouverClient": "Manouver Client",
+      "load": "Load",
+      "client": "Client"
+    }
+  }
+}

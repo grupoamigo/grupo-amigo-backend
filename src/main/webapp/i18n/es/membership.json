@@ -1,0 +1,29 @@
+{
+  "grupoAmigoBackendApp": {
+    "membership": {
+      "home": {
+        "title": "Memberships",
+        "createLabel": "Crear nuevo Membership",
+        "createOrEditLabel": "Crear o editar Membership",
+        "notFound": "No Memberships found"
+      },
+      "created": "Un nuevo Membership ha sido creado con el identificador {{ param }}",
+      "updated": "Un Membership ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Membership ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Membership {{ id }}?"
+      },
+      "detail": {
+        "title": "Membership"
+      },
+      "title": "Title",
+      "price": "Price",
+      "currency": "Currency",
+      "created": "Created",
+      "expires": "Expires",
+      "type": "Type",
+      "company": "Company",
+      "user": "User"
+    }
+  }
+}

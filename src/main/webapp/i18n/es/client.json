@@ -1,0 +1,33 @@
+{
+  "grupoAmigoBackendApp": {
+    "client": {
+      "home": {
+        "title": "Clients",
+        "createLabel": "Crear nuevo Client",
+        "createOrEditLabel": "Crear o editar Client",
+        "notFound": "No Clients found"
+      },
+      "created": "Un nuevo Client ha sido creado con el identificador {{ param }}",
+      "updated": "Un Client ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Client ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Client {{ id }}?"
+      },
+      "detail": {
+        "title": "Client"
+      },
+      "legalName": "Legal Name",
+      "memberSince": "Member Since",
+      "status": "Status",
+      "internalNotes": "Internal Notes",
+      "contactCards": "Contact Cards",
+      "locations": "Locations",
+      "manouverRequest": "Manouver Request",
+      "contract": "Contract",
+      "serviceQuote": "Service Quote",
+      "serviceRequest": "Service Request",
+      "hirer": "Hirer",
+      "manouverRequestClient": "Manouver Request Client"
+    }
+  }
+}

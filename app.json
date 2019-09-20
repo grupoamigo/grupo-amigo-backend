@@ -1,0 +1,31 @@
+{
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/java"
+    }
+  ],
+  "description": "",
+  "env": {
+    "MAVEN_CUSTOM_OPTS": {
+      "required": true
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "grupo-amigo-backend",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}

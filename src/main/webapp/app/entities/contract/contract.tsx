@@ -2,14 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Row, Table } from 'reactstrap';
-// tslint:disable-next-line:no-unused-variable
 import { openFile, byteSize, Translate, ICrudGetAllAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './contract.reducer';
 import { IContract } from 'app/shared/model/contract.model';
-// tslint:disable-next-line:no-unused-variable
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IContractProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
@@ -33,7 +31,7 @@ export class Contract extends React.Component<IContractProps> {
         </h2>
         <div className="table-responsive">
           {contractList && contractList.length > 0 ? (
-            <Table responsive>
+            <Table responsive aria-describedby="contract-heading">
               <thead>
                 <tr>
                   <th>
@@ -55,6 +53,9 @@ export class Contract extends React.Component<IContractProps> {
                     <Translate contentKey="grupoAmigoBackendApp.contract.contractFile">Contract File</Translate>
                   </th>
                   <th>
+                    <Translate contentKey="grupoAmigoBackendApp.contract.qrCode">Qr Code</Translate>
+                  </th>
+                  <th>
                     <Translate contentKey="grupoAmigoBackendApp.contract.digitalFingerprint">Digital Fingerprint</Translate>
                   </th>
                   <th>
@@ -70,7 +71,7 @@ export class Contract extends React.Component<IContractProps> {
                     <Translate contentKey="grupoAmigoBackendApp.contract.serviceQuote">Service Quote</Translate>
                   </th>
                   <th>
-                    <Translate contentKey="grupoAmigoBackendApp.contract.service">Service</Translate>
+                    <Translate contentKey="grupoAmigoBackendApp.contract.serviceTitle">Service Title</Translate>
                   </th>
                   <th />
                 </tr>
@@ -114,6 +115,19 @@ export class Contract extends React.Component<IContractProps> {
                         </div>
                       ) : null}
                     </td>
+                    <td>
+                      {contract.qrCode ? (
+                        <div>
+                          <a onClick={openFile(contract.qrCodeContentType, contract.qrCode)}>
+                            <img src={`data:${contract.qrCodeContentType};base64,${contract.qrCode}`} style={{ maxHeight: '30px' }} />
+                            &nbsp;
+                          </a>
+                          <span>
+                            {contract.qrCodeContentType}, {byteSize(contract.qrCode)}
+                          </span>
+                        </div>
+                      ) : null}
+                    </td>
                     <td>{contract.digitalFingerprint}</td>
                     <td>
                       <TextFormat type="date" value={contract.dateSigned} format={APP_DATE_FORMAT} />
@@ -132,11 +146,11 @@ export class Contract extends React.Component<IContractProps> {
                       )}
                     </td>
                     <td>
-                      {contract.services
-                        ? contract.services.map((val, j) => (
+                      {contract.serviceTitles
+                        ? contract.serviceTitles.map((val, j) => (
                             <span key={j}>
                               <Link to={`service/${val.id}`}>{val.title}</Link>
-                              {j === contract.services.length - 1 ? '' : ', '}
+                              {j === contract.serviceTitles.length - 1 ? '' : ', '}
                             </span>
                           ))
                         : null}

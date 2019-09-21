@@ -41,17 +41,9 @@
         },
         {
             "relationshipType": "many-to-many",
-            "otherEntityName": "manouverRequest",
-            "otherEntityRelationshipName": "client",
-            "relationshipName": "manouverRequest",
-            "otherEntityField": "title",
-            "ownerSide": true
-        },
-        {
-            "relationshipType": "many-to-many",
             "otherEntityName": "contract",
             "otherEntityRelationshipName": "client",
-            "relationshipName": "contract",
+            "relationshipName": "contracts",
             "otherEntityField": "title",
             "ownerSide": true
         },
@@ -59,7 +51,7 @@
             "relationshipType": "many-to-many",
             "otherEntityName": "serviceQuote",
             "otherEntityRelationshipName": "client",
-            "relationshipName": "serviceQuote",
+            "relationshipName": "serviceQuotes",
             "otherEntityField": "title",
             "ownerSide": true
         },

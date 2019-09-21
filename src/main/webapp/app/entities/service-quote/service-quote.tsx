@@ -2,14 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Row, Table } from 'reactstrap';
-// tslint:disable-next-line:no-unused-variable
 import { openFile, byteSize, Translate, ICrudGetAllAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './service-quote.reducer';
 import { IServiceQuote } from 'app/shared/model/service-quote.model';
-// tslint:disable-next-line:no-unused-variable
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IServiceQuoteProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
@@ -33,7 +31,7 @@ export class ServiceQuote extends React.Component<IServiceQuoteProps> {
         </h2>
         <div className="table-responsive">
           {serviceQuoteList && serviceQuoteList.length > 0 ? (
-            <Table responsive>
+            <Table responsive aria-describedby="service-quote-heading">
               <thead>
                 <tr>
                   <th>

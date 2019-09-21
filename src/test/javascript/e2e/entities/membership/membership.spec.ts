@@ -1,10 +1,8 @@
-/* tslint:disable no-unused-expression */
 import { browser, element, by, protractor } from 'protractor';
 
 import NavBarPage from './../../page-objects/navbar-page';
 import SignInPage from './../../page-objects/signin-page';
-import MembershipComponentsPage from './membership.page-object';
-import { MembershipDeleteDialog } from './membership.page-object';
+import MembershipComponentsPage, { MembershipDeleteDialog } from './membership.page-object';
 import MembershipUpdatePage from './membership-update.page-object';
 import { waitUntilDisplayed, waitUntilHidden } from '../../util/utils';
 

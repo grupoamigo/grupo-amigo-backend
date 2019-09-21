@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
+    
     <!--
         Added the entity ServiceQuote.
     -->
@@ -18,53 +18,41 @@
             <column name="title" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="description" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="quantity" type="integer">
                 <constraints nullable="true" />
             </column>
-
             <column name="price" type="${floatType}">
                 <constraints nullable="true" />
             </column>
-
             <column name="unit" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="expedition_date" type="datetime">
                 <constraints nullable="true" />
             </column>
-
             <column name="expiration_date" type="date">
                 <constraints nullable="true" />
             </column>
-
             <column name="status" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <column name="currency" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="approved_by" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <column name="qr_code" type="longblob">
                 <constraints nullable="true" />
             </column>
             <column name="qr_code_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-
         <dropDefaultValue tableName="service_quote" columnName="expedition_date" columnDataType="datetime"/>
     </changeSet>
 

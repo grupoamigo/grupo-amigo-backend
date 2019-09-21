@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
+    
     <!--
         Added the entity Manouver.
     -->
@@ -18,22 +18,17 @@
             <column name="title" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="description" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="unit" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="division" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-
     </changeSet>
 
     <changeSet id="20190920193525-1-relations" author="jhipster">

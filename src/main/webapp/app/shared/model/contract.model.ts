@@ -3,26 +3,8 @@ import { IServiceQuote } from 'app/shared/model/service-quote.model';
 import { IService } from 'app/shared/model/service.model';
 import { ICompany } from 'app/shared/model/company.model';
 import { IClient } from 'app/shared/model/client.model';
-
-export const enum ContractType {
-  PRESTACION_DE_SERVICIO = 'PRESTACION_DE_SERVICIO',
-  TERMINOS_Y_CONDICIONES = 'TERMINOS_Y_CONDICIONES',
-  DECISION_INTERNA = 'DECISION_INTERNA',
-  SOLICITUD_DE_SERVICIO = 'SOLICITUD_DE_SERVICIO',
-  SOLICITU_DE_MANIOBRA = 'SOLICITU_DE_MANIOBRA',
-  INSPECCION = 'INSPECCION',
-  EMPLEADO = 'EMPLEADO',
-  CONFIDENCIALIDAD = 'CONFIDENCIALIDAD'
-}
-
-export const enum ContractStatusType {
-  EMITIDO = 'EMITIDO',
-  FIRMADO = 'FIRMADO',
-  ACTIVO = 'ACTIVO',
-  CANCELADO = 'CANCELADO',
-  PAUSADO = 'PAUSADO',
-  TERMINADO = 'TERMINADO'
-}
+import { ContractType } from 'app/shared/model/enumerations/contract-type.model';
+import { ContractStatusType } from 'app/shared/model/enumerations/contract-status-type.model';
 
 export interface IContract {
   id?: number;
@@ -33,12 +15,14 @@ export interface IContract {
   signature?: any;
   contractFileContentType?: string;
   contractFile?: any;
+  qrCodeContentType?: string;
+  qrCode?: any;
   digitalFingerprint?: string;
   dateSigned?: Moment;
   expirationDate?: Moment;
   status?: ContractStatusType;
   serviceQuote?: IServiceQuote;
-  services?: IService[];
+  serviceTitles?: IService[];
   suppliers?: ICompany[];
   clients?: IClient[];
 }

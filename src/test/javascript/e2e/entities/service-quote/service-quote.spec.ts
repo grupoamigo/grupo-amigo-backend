@@ -1,10 +1,8 @@
-/* tslint:disable no-unused-expression */
 import { browser, element, by, protractor } from 'protractor';
 
 import NavBarPage from './../../page-objects/navbar-page';
 import SignInPage from './../../page-objects/signin-page';
-import ServiceQuoteComponentsPage from './service-quote.page-object';
-import { ServiceQuoteDeleteDialog } from './service-quote.page-object';
+import ServiceQuoteComponentsPage, { ServiceQuoteDeleteDialog } from './service-quote.page-object';
 import ServiceQuoteUpdatePage from './service-quote-update.page-object';
 import { waitUntilDisplayed, waitUntilHidden } from '../../util/utils';
 import path from 'path';

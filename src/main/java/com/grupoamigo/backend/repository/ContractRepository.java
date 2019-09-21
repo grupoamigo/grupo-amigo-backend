@@ -1,5 +1,4 @@
 package com.grupoamigo.backend.repository;
-
 import com.grupoamigo.backend.domain.Contract;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,14 +15,14 @@ import java.util.Optional;
 @Repository
 public interface ContractRepository extends JpaRepository<Contract, Long> {
 
-    @Query(value = "select distinct contract from Contract contract left join fetch contract.services",
+    @Query(value = "select distinct contract from Contract contract left join fetch contract.serviceTitles",
         countQuery = "select count(distinct contract) from Contract contract")
     Page<Contract> findAllWithEagerRelationships(Pageable pageable);
 
-    @Query("select distinct contract from Contract contract left join fetch contract.services")
+    @Query("select distinct contract from Contract contract left join fetch contract.serviceTitles")
     List<Contract> findAllWithEagerRelationships();
 
-    @Query("select contract from Contract contract left join fetch contract.services where contract.id =:id")
+    @Query("select contract from Contract contract left join fetch contract.serviceTitles where contract.id =:id")
     Optional<Contract> findOneWithEagerRelationships(@Param("id") Long id);
 
 }

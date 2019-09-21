@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
 import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-// tslint:disable-next-line:no-unused-variable
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
@@ -18,7 +17,6 @@ import { IServiceRequest } from 'app/shared/model/service-request.model';
 import { getEntities as getServiceRequests } from 'app/entities/service-request/service-request.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './service.reducer';
 import { IService } from 'app/shared/model/service.model';
-// tslint:disable-next-line:no-unused-variable
 import { convertDateTimeFromServer, convertDateTimeToServer } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 
@@ -26,7 +24,7 @@ export interface IServiceUpdateProps extends StateProps, DispatchProps, RouteCom
 
 export interface IServiceUpdateState {
   isNew: boolean;
-  idsmanouver: any[];
+  idsmanouvers: any[];
   contractId: string;
   companyId: string;
   serviceRequestId: string;
@@ -36,7 +34,7 @@ export class ServiceUpdate extends React.Component<IServiceUpdateProps, IService
   constructor(props) {
     super(props);
     this.state = {
-      idsmanouver: [],
+      idsmanouvers: [],
       contractId: '0',
       companyId: '0',
       serviceRequestId: '0',
@@ -199,11 +197,11 @@ export class ServiceUpdate extends React.Component<IServiceUpdateProps, IService
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label for="service-manouver">
-                    <Translate contentKey="grupoAmigoBackendApp.service.manouver">Manouver</Translate>
+                  <Label for="service-manouvers">
+                    <Translate contentKey="grupoAmigoBackendApp.service.manouvers">Manouvers</Translate>
                   </Label>
                   <AvInput
-                    id="service-manouver"
+                    id="service-manouvers"
                     type="select"
                     multiple
                     className="form-control"

@@ -63,14 +63,14 @@
                                  referencedTableName="manouver"/>
         
         <addForeignKeyConstraint baseColumnNames="company_id"
-                                 baseTableName="company_contract"
-                                 constraintName="fk_company_contract_company_id"
+                                 baseTableName="company_contracts"
+                                 constraintName="fk_company_contracts_company_id"
                                  referencedColumnNames="id"
                                  referencedTableName="company"/>
 
-        <addForeignKeyConstraint baseColumnNames="contract_id"
-                                 baseTableName="company_contract"
-                                 constraintName="fk_company_contract_contract_id"
+        <addForeignKeyConstraint baseColumnNames="contracts_id"
+                                 baseTableName="company_contracts"
+                                 constraintName="fk_company_contracts_contracts_id"
                                  referencedColumnNames="id"
                                  referencedTableName="contract"/>
         

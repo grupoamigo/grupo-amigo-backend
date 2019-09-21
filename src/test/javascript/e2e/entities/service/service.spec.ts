@@ -1,10 +1,8 @@
-/* tslint:disable no-unused-expression */
 import { browser, element, by } from 'protractor';
 
 import NavBarPage from './../../page-objects/navbar-page';
 import SignInPage from './../../page-objects/signin-page';
-import ServiceComponentsPage from './service.page-object';
-import { ServiceDeleteDialog } from './service.page-object';
+import ServiceComponentsPage, { ServiceDeleteDialog } from './service.page-object';
 import ServiceUpdatePage from './service-update.page-object';
 import { waitUntilDisplayed, waitUntilHidden } from '../../util/utils';
 
@@ -53,7 +51,7 @@ describe('Service e2e test', () => {
       await serviceUpdatePage.typeSelectLastOption();
       await serviceUpdatePage.unitSelectLastOption();
       await serviceUpdatePage.statusSelectLastOption();
-      // serviceUpdatePage.manouverSelectLastOption();
+      // serviceUpdatePage.manouversSelectLastOption();
       await waitUntilDisplayed(serviceUpdatePage.getSaveButton());
       await serviceUpdatePage.save();
       await waitUntilHidden(serviceUpdatePage.getSaveButton());

@@ -9,7 +9,7 @@ export default class ServiceUpdatePage {
   typeSelect: ElementFinder = element(by.css('select#service-type'));
   unitSelect: ElementFinder = element(by.css('select#service-unit'));
   statusSelect: ElementFinder = element(by.css('select#service-status'));
-  manouverSelect: ElementFinder = element(by.css('select#service-manouver'));
+  manouversSelect: ElementFinder = element(by.css('select#service-manouvers'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -73,23 +73,23 @@ export default class ServiceUpdatePage {
       .last()
       .click();
   }
-  async manouverSelectLastOption() {
-    await this.manouverSelect
+  async manouversSelectLastOption() {
+    await this.manouversSelect
       .all(by.tagName('option'))
       .last()
       .click();
   }
 
-  async manouverSelectOption(option) {
-    await this.manouverSelect.sendKeys(option);
+  async manouversSelectOption(option) {
+    await this.manouversSelect.sendKeys(option);
   }
 
-  getManouverSelect() {
-    return this.manouverSelect;
+  getManouversSelect() {
+    return this.manouversSelect;
   }
 
-  async getManouverSelectedOption() {
-    return this.manouverSelect.element(by.css('option:checked')).getText();
+  async getManouversSelectedOption() {
+    return this.manouversSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {

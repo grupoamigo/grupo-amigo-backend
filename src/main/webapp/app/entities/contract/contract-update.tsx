@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
 import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-// tslint:disable-next-line:no-unused-variable
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, setFileData, openFile, byteSize, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
@@ -18,7 +17,6 @@ import { IClient } from 'app/shared/model/client.model';
 import { getEntities as getClients } from 'app/entities/client/client.reducer';
 import { getEntity, updateEntity, createEntity, setBlob, reset } from './contract.reducer';
 import { IContract } from 'app/shared/model/contract.model';
-// tslint:disable-next-line:no-unused-variable
 import { convertDateTimeFromServer, convertDateTimeToServer } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 
@@ -26,7 +24,7 @@ export interface IContractUpdateProps extends StateProps, DispatchProps, RouteCo
 
 export interface IContractUpdateState {
   isNew: boolean;
-  idsservice: any[];
+  idsserviceTitle: any[];
   serviceQuoteId: string;
   supplierId: string;
   clientId: string;
@@ -36,7 +34,7 @@ export class ContractUpdate extends React.Component<IContractUpdateProps, IContr
   constructor(props) {
     super(props);
     this.state = {
-      idsservice: [],
+      idsserviceTitle: [],
       serviceQuoteId: '0',
       supplierId: '0',
       clientId: '0',
@@ -79,7 +77,7 @@ export class ContractUpdate extends React.Component<IContractUpdateProps, IContr
       const entity = {
         ...contractEntity,
         ...values,
-        services: mapIdList(values.services)
+        serviceTitles: mapIdList(values.serviceTitles)
       };
 
       if (this.state.isNew) {
@@ -98,7 +96,7 @@ export class ContractUpdate extends React.Component<IContractUpdateProps, IContr
     const { contractEntity, serviceQuotes, services, companies, clients, loading, updating } = this.props;
     const { isNew } = this.state;
 
-    const { signature, signatureContentType, contractFile, contractFileContentType } = contractEntity;
+    const { signature, signatureContentType, contractFile, contractFileContentType, qrCode, qrCodeContentType } = contractEntity;
 
     return (
       <div>
@@ -231,6 +229,36 @@ export class ContractUpdate extends React.Component<IContractUpdateProps, IContr
                   </AvGroup>
                 </AvGroup>
                 <AvGroup>
+                  <AvGroup>
+                    <Label id="qrCodeLabel" for="qrCode">
+                      <Translate contentKey="grupoAmigoBackendApp.contract.qrCode">Qr Code</Translate>
+                    </Label>
+                    <br />
+                    {qrCode ? (
+                      <div>
+                        <a onClick={openFile(qrCodeContentType, qrCode)}>
+                          <img src={`data:${qrCodeContentType};base64,${qrCode}`} style={{ maxHeight: '100px' }} />
+                        </a>
+                        <br />
+                        <Row>
+                          <Col md="11">
+                            <span>
+                              {qrCodeContentType}, {byteSize(qrCode)}
+                            </span>
+                          </Col>
+                          <Col md="1">
+                            <Button color="danger" onClick={this.clearBlob('qrCode')}>
+                              <FontAwesomeIcon icon="times-circle" />
+                            </Button>
+                          </Col>
+                        </Row>
+                      </div>
+                    ) : null}
+                    <input id="file_qrCode" type="file" onChange={this.onBlobChange(true, 'qrCode')} accept="image/*" />
+                    <AvInput type="hidden" name="qrCode" value={qrCode} />
+                  </AvGroup>
+                </AvGroup>
+                <AvGroup>
                   <Label id="digitalFingerprintLabel" for="contract-digitalFingerprint">
                     <Translate contentKey="grupoAmigoBackendApp.contract.digitalFingerprint">Digital Fingerprint</Translate>
                   </Label>
@@ -290,16 +318,16 @@ export class ContractUpdate extends React.Component<IContractUpdateProps, IContr
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label for="contract-service">
-                    <Translate contentKey="grupoAmigoBackendApp.contract.service">Service</Translate>
+                  <Label for="contract-serviceTitle">
+                    <Translate contentKey="grupoAmigoBackendApp.contract.serviceTitle">Service Title</Translate>
                   </Label>
                   <AvInput
-                    id="contract-service"
+                    id="contract-serviceTitle"
                     type="select"
                     multiple
                     className="form-control"
-                    name="services"
-                    value={contractEntity.services && contractEntity.services.map(e => e.id)}
+                    name="serviceTitles"
+                    value={contractEntity.serviceTitles && contractEntity.serviceTitles.map(e => e.id)}
                   >
                     <option value="" key="0" />
                     {services

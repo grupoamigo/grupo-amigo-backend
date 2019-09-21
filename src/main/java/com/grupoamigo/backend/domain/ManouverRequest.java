@@ -1,5 +1,4 @@
 package com.grupoamigo.backend.domain;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -79,11 +78,6 @@ public class ManouverRequest implements Serializable {
                joinColumns = @JoinColumn(name = "manouver_request_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "load_id", referencedColumnName = "id"))
     private Set<Load> loads = new HashSet<>();
-
-    @ManyToMany(mappedBy = "manouverRequests")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JsonIgnore
-    private Set<Client> clients = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -260,31 +254,6 @@ public class ManouverRequest implements Serializable {
 
     public void setLoads(Set<Load> loads) {
         this.loads = loads;
-    }
-
-    public Set<Client> getClients() {
-        return clients;
-    }
-
-    public ManouverRequest clients(Set<Client> clients) {
-        this.clients = clients;
-        return this;
-    }
-
-    public ManouverRequest addClient(Client client) {
-        this.clients.add(client);
-        client.getManouverRequests().add(this);
-        return this;
-    }
-
-    public ManouverRequest removeClient(Client client) {
-        this.clients.remove(client);
-        client.getManouverRequests().remove(this);
-        return this;
-    }
-
-    public void setClients(Set<Client> clients) {
-        this.clients = clients;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

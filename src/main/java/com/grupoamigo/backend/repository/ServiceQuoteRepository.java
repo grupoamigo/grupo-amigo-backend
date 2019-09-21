@@ -1,5 +1,4 @@
 package com.grupoamigo.backend.repository;
-
 import com.grupoamigo.backend.domain.ServiceQuote;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

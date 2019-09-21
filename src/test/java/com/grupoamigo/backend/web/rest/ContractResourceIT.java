@@ -64,6 +64,11 @@ public class ContractResourceIT {
     private static final String DEFAULT_CONTRACT_FILE_CONTENT_TYPE = "image/jpg";
     private static final String UPDATED_CONTRACT_FILE_CONTENT_TYPE = "image/png";
 
+    private static final byte[] DEFAULT_QR_CODE = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_QR_CODE = TestUtil.createByteArray(1, "1");
+    private static final String DEFAULT_QR_CODE_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_QR_CODE_CONTENT_TYPE = "image/png";
+
     private static final String DEFAULT_DIGITAL_FINGERPRINT = "AAAAAAAAAA";
     private static final String UPDATED_DIGITAL_FINGERPRINT = "BBBBBBBBBB";
 
@@ -130,6 +135,8 @@ public class ContractResourceIT {
             .signatureContentType(DEFAULT_SIGNATURE_CONTENT_TYPE)
             .contractFile(DEFAULT_CONTRACT_FILE)
             .contractFileContentType(DEFAULT_CONTRACT_FILE_CONTENT_TYPE)
+            .qrCode(DEFAULT_QR_CODE)
+            .qrCodeContentType(DEFAULT_QR_CODE_CONTENT_TYPE)
             .digitalFingerprint(DEFAULT_DIGITAL_FINGERPRINT)
             .dateSigned(DEFAULT_DATE_SIGNED)
             .expirationDate(DEFAULT_EXPIRATION_DATE)
@@ -151,6 +158,8 @@ public class ContractResourceIT {
             .signatureContentType(UPDATED_SIGNATURE_CONTENT_TYPE)
             .contractFile(UPDATED_CONTRACT_FILE)
             .contractFileContentType(UPDATED_CONTRACT_FILE_CONTENT_TYPE)
+            .qrCode(UPDATED_QR_CODE)
+            .qrCodeContentType(UPDATED_QR_CODE_CONTENT_TYPE)
             .digitalFingerprint(UPDATED_DIGITAL_FINGERPRINT)
             .dateSigned(UPDATED_DATE_SIGNED)
             .expirationDate(UPDATED_EXPIRATION_DATE)
@@ -185,6 +194,8 @@ public class ContractResourceIT {
         assertThat(testContract.getSignatureContentType()).isEqualTo(DEFAULT_SIGNATURE_CONTENT_TYPE);
         assertThat(testContract.getContractFile()).isEqualTo(DEFAULT_CONTRACT_FILE);
         assertThat(testContract.getContractFileContentType()).isEqualTo(DEFAULT_CONTRACT_FILE_CONTENT_TYPE);
+        assertThat(testContract.getQrCode()).isEqualTo(DEFAULT_QR_CODE);
+        assertThat(testContract.getQrCodeContentType()).isEqualTo(DEFAULT_QR_CODE_CONTENT_TYPE);
         assertThat(testContract.getDigitalFingerprint()).isEqualTo(DEFAULT_DIGITAL_FINGERPRINT);
         assertThat(testContract.getDateSigned()).isEqualTo(DEFAULT_DATE_SIGNED);
         assertThat(testContract.getExpirationDate()).isEqualTo(DEFAULT_EXPIRATION_DATE);
@@ -283,6 +294,8 @@ public class ContractResourceIT {
             .andExpect(jsonPath("$.[*].signature").value(hasItem(Base64Utils.encodeToString(DEFAULT_SIGNATURE))))
             .andExpect(jsonPath("$.[*].contractFileContentType").value(hasItem(DEFAULT_CONTRACT_FILE_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].contractFile").value(hasItem(Base64Utils.encodeToString(DEFAULT_CONTRACT_FILE))))
+            .andExpect(jsonPath("$.[*].qrCodeContentType").value(hasItem(DEFAULT_QR_CODE_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].qrCode").value(hasItem(Base64Utils.encodeToString(DEFAULT_QR_CODE))))
             .andExpect(jsonPath("$.[*].digitalFingerprint").value(hasItem(DEFAULT_DIGITAL_FINGERPRINT.toString())))
             .andExpect(jsonPath("$.[*].dateSigned").value(hasItem(DEFAULT_DATE_SIGNED.toString())))
             .andExpect(jsonPath("$.[*].expirationDate").value(hasItem(DEFAULT_EXPIRATION_DATE.toString())))
@@ -340,6 +353,8 @@ public class ContractResourceIT {
             .andExpect(jsonPath("$.signature").value(Base64Utils.encodeToString(DEFAULT_SIGNATURE)))
             .andExpect(jsonPath("$.contractFileContentType").value(DEFAULT_CONTRACT_FILE_CONTENT_TYPE))
             .andExpect(jsonPath("$.contractFile").value(Base64Utils.encodeToString(DEFAULT_CONTRACT_FILE)))
+            .andExpect(jsonPath("$.qrCodeContentType").value(DEFAULT_QR_CODE_CONTENT_TYPE))
+            .andExpect(jsonPath("$.qrCode").value(Base64Utils.encodeToString(DEFAULT_QR_CODE)))
             .andExpect(jsonPath("$.digitalFingerprint").value(DEFAULT_DIGITAL_FINGERPRINT.toString()))
             .andExpect(jsonPath("$.dateSigned").value(DEFAULT_DATE_SIGNED.toString()))
             .andExpect(jsonPath("$.expirationDate").value(DEFAULT_EXPIRATION_DATE.toString()))
@@ -374,6 +389,8 @@ public class ContractResourceIT {
             .signatureContentType(UPDATED_SIGNATURE_CONTENT_TYPE)
             .contractFile(UPDATED_CONTRACT_FILE)
             .contractFileContentType(UPDATED_CONTRACT_FILE_CONTENT_TYPE)
+            .qrCode(UPDATED_QR_CODE)
+            .qrCodeContentType(UPDATED_QR_CODE_CONTENT_TYPE)
             .digitalFingerprint(UPDATED_DIGITAL_FINGERPRINT)
             .dateSigned(UPDATED_DATE_SIGNED)
             .expirationDate(UPDATED_EXPIRATION_DATE)
@@ -395,6 +412,8 @@ public class ContractResourceIT {
         assertThat(testContract.getSignatureContentType()).isEqualTo(UPDATED_SIGNATURE_CONTENT_TYPE);
         assertThat(testContract.getContractFile()).isEqualTo(UPDATED_CONTRACT_FILE);
         assertThat(testContract.getContractFileContentType()).isEqualTo(UPDATED_CONTRACT_FILE_CONTENT_TYPE);
+        assertThat(testContract.getQrCode()).isEqualTo(UPDATED_QR_CODE);
+        assertThat(testContract.getQrCodeContentType()).isEqualTo(UPDATED_QR_CODE_CONTENT_TYPE);
         assertThat(testContract.getDigitalFingerprint()).isEqualTo(UPDATED_DIGITAL_FINGERPRINT);
         assertThat(testContract.getDateSigned()).isEqualTo(UPDATED_DATE_SIGNED);
         assertThat(testContract.getExpirationDate()).isEqualTo(UPDATED_EXPIRATION_DATE);

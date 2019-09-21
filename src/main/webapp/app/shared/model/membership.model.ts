@@ -1,22 +1,8 @@
 import { Moment } from 'moment';
 import { ICompany } from 'app/shared/model/company.model';
 import { IUser } from 'app/shared/model/user.model';
-
-export const enum CurrencyType {
-  MXN = 'MXN',
-  USD = 'USD'
-}
-
-export const enum MembershipType {
-  CEO = 'CEO',
-  VP = 'VP',
-  JEFE_DE_DIVISION = 'JEFE_DE_DIVISION',
-  SUPERVISOR = 'SUPERVISOR',
-  INSPECTOR = 'INSPECTOR',
-  VIGILANTE = 'VIGILANTE',
-  CHOFER = 'CHOFER',
-  ADMINISTRATIVO = 'ADMINISTRATIVO'
-}
+import { CurrencyType } from 'app/shared/model/enumerations/currency-type.model';
+import { MembershipType } from 'app/shared/model/enumerations/membership-type.model';
 
 export interface IMembership {
   id?: number;

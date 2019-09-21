@@ -2,14 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
-// tslint:disable-next-line:no-unused-variable
 import { Translate, ICrudGetAction, openFile, byteSize } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './company.reducer';
 import { ICompany } from 'app/shared/model/company.model';
-// tslint:disable-next-line:no-unused-variable
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface ICompanyDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
@@ -120,7 +118,7 @@ export class CompanyDetail extends React.Component<ICompanyDetailProps> {
                 : null}
             </dd>
             <dt>
-              <Translate contentKey="grupoAmigoBackendApp.company.contract">Contract</Translate>
+              <Translate contentKey="grupoAmigoBackendApp.company.contracts">Contracts</Translate>
             </dt>
             <dd>
               {companyEntity.contracts

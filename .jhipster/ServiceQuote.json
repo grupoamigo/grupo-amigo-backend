@@ -88,7 +88,7 @@
         {
             "relationshipType": "many-to-many",
             "otherEntityName": "client",
-            "otherEntityRelationshipName": "serviceQuote",
+            "otherEntityRelationshipName": "serviceQuotes",
             "relationshipName": "client",
             "otherEntityField": "legalName",
             "ownerSide": false

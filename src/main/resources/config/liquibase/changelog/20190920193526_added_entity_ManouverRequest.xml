@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
+    
     <!--
         Added the entity ManouverRequest.
     -->
@@ -18,27 +18,21 @@
             <column name="title" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="description" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="date" type="date">
                 <constraints nullable="false" />
             </column>
-
             <column name="transport" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <column name="price" type="${floatType}">
                 <constraints nullable="true" />
             </column>
-
             <column name="currency" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <column name="qr_code" type="longblob">
                 <constraints nullable="true" />
             </column>
@@ -47,16 +41,15 @@
             </column>
             <column name="origin_id" type="bigint">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_manouver_request_origin_id" />
-            </column>            <column name="destiny_id" type="bigint">
+            </column>
+            <column name="destiny_id" type="bigint">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_manouver_request_destiny_id" />
             </column>
             <column name="manouver_client_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-
     </changeSet>
 
     <changeSet id="20190920193526-1-relations" author="jhipster">

@@ -5,17 +5,7 @@ import { ILocation } from 'app/shared/model/location.model';
 import { IManouver } from 'app/shared/model/manouver.model';
 import { IContract } from 'app/shared/model/contract.model';
 import { IMembership } from 'app/shared/model/membership.model';
-
-export const enum CompanyType {
-  NAVIERA = 'NAVIERA',
-  TRANSPORTISTA = 'TRANSPORTISTA',
-  PERSONA_MORAL = 'PERSONA_MORAL',
-  PERSONA_FISICA = 'PERSONA_FISICA',
-  CONTRATISTA = 'CONTRATISTA',
-  AGENTE_ADUANAL = 'AGENTE_ADUANAL',
-  GOBIERNO = 'GOBIERNO',
-  CENTRO_DE_DISTRIBUCION = 'CENTRO_DE_DISTRIBUCION'
-}
+import { CompanyType } from 'app/shared/model/enumerations/company-type.model';
 
 export interface ICompany {
   id?: number;

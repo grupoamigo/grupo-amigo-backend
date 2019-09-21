@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
 import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-// tslint:disable-next-line:no-unused-variable
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, setFileData, openFile, byteSize, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
@@ -24,7 +23,6 @@ import { IMembership } from 'app/shared/model/membership.model';
 import { getEntities as getMemberships } from 'app/entities/membership/membership.reducer';
 import { getEntity, updateEntity, createEntity, setBlob, reset } from './company.reducer';
 import { ICompany } from 'app/shared/model/company.model';
-// tslint:disable-next-line:no-unused-variable
 import { convertDateTimeFromServer, convertDateTimeToServer } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 
@@ -36,7 +34,7 @@ export interface ICompanyUpdateState {
   idsservices: any[];
   idslocations: any[];
   idsmanouvers: any[];
-  idscontract: any[];
+  idscontracts: any[];
   clientId: string;
   membershipId: string;
 }
@@ -49,7 +47,7 @@ export class CompanyUpdate extends React.Component<ICompanyUpdateProps, ICompany
       idsservices: [],
       idslocations: [],
       idsmanouvers: [],
-      idscontract: [],
+      idscontracts: [],
       clientId: '0',
       membershipId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
@@ -321,11 +319,11 @@ export class CompanyUpdate extends React.Component<ICompanyUpdateProps, ICompany
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label for="company-contract">
-                    <Translate contentKey="grupoAmigoBackendApp.company.contract">Contract</Translate>
+                  <Label for="company-contracts">
+                    <Translate contentKey="grupoAmigoBackendApp.company.contracts">Contracts</Translate>
                   </Label>
                   <AvInput
-                    id="company-contract"
+                    id="company-contracts"
                     type="select"
                     multiple
                     className="form-control"

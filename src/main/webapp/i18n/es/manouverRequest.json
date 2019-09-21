@@ -26,8 +26,7 @@
       "origin": "Origin",
       "destiny": "Destiny",
       "manouverClient": "Manouver Client",
-      "load": "Load",
-      "client": "Client"
+      "load": "Load"
     }
   }
 }

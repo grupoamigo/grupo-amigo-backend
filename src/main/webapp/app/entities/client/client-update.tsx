@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
 import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-// tslint:disable-next-line:no-unused-variable
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
@@ -12,8 +11,6 @@ import { IContactCard } from 'app/shared/model/contact-card.model';
 import { getEntities as getContactCards } from 'app/entities/contact-card/contact-card.reducer';
 import { ILocation } from 'app/shared/model/location.model';
 import { getEntities as getLocations } from 'app/entities/location/location.reducer';
-import { IManouverRequest } from 'app/shared/model/manouver-request.model';
-import { getEntities as getManouverRequests } from 'app/entities/manouver-request/manouver-request.reducer';
 import { IContract } from 'app/shared/model/contract.model';
 import { getEntities as getContracts } from 'app/entities/contract/contract.reducer';
 import { IServiceQuote } from 'app/shared/model/service-quote.model';
@@ -24,7 +21,6 @@ import { ICompany } from 'app/shared/model/company.model';
 import { getEntities as getCompanies } from 'app/entities/company/company.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './client.reducer';
 import { IClient } from 'app/shared/model/client.model';
-// tslint:disable-next-line:no-unused-variable
 import { convertDateTimeFromServer, convertDateTimeToServer } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 
@@ -34,10 +30,8 @@ export interface IClientUpdateState {
   isNew: boolean;
   idscontactCards: any[];
   idslocations: any[];
-  idsmanouverRequest: any[];
-  idscontract: any[];
-  idsserviceQuote: any[];
-  manouverRequestClientId: string;
+  idscontracts: any[];
+  idsserviceQuotes: any[];
   serviceRequestId: string;
   hirerId: string;
 }
@@ -48,10 +42,8 @@ export class ClientUpdate extends React.Component<IClientUpdateProps, IClientUpd
     this.state = {
       idscontactCards: [],
       idslocations: [],
-      idsmanouverRequest: [],
-      idscontract: [],
-      idsserviceQuote: [],
-      manouverRequestClientId: '0',
+      idscontracts: [],
+      idsserviceQuotes: [],
       serviceRequestId: '0',
       hirerId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
@@ -73,7 +65,6 @@ export class ClientUpdate extends React.Component<IClientUpdateProps, IClientUpd
 
     this.props.getContactCards();
     this.props.getLocations();
-    this.props.getManouverRequests();
     this.props.getContracts();
     this.props.getServiceQuotes();
     this.props.getServiceRequests();
@@ -90,7 +81,6 @@ export class ClientUpdate extends React.Component<IClientUpdateProps, IClientUpd
         ...values,
         contactCards: mapIdList(values.contactCards),
         locations: mapIdList(values.locations),
-        manouverRequests: mapIdList(values.manouverRequests),
         contracts: mapIdList(values.contracts),
         serviceQuotes: mapIdList(values.serviceQuotes)
       };
@@ -108,18 +98,7 @@ export class ClientUpdate extends React.Component<IClientUpdateProps, IClientUpd
   };
 
   render() {
-    const {
-      clientEntity,
-      contactCards,
-      locations,
-      manouverRequests,
-      contracts,
-      serviceQuotes,
-      serviceRequests,
-      companies,
-      loading,
-      updating
-    } = this.props;
+    const { clientEntity, contactCards, locations, contracts, serviceQuotes, serviceRequests, companies, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -242,33 +221,11 @@ export class ClientUpdate extends React.Component<IClientUpdateProps, IClientUpd
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label for="client-manouverRequest">
-                    <Translate contentKey="grupoAmigoBackendApp.client.manouverRequest">Manouver Request</Translate>
+                  <Label for="client-contracts">
+                    <Translate contentKey="grupoAmigoBackendApp.client.contracts">Contracts</Translate>
                   </Label>
                   <AvInput
-                    id="client-manouverRequest"
-                    type="select"
-                    multiple
-                    className="form-control"
-                    name="manouverRequests"
-                    value={clientEntity.manouverRequests && clientEntity.manouverRequests.map(e => e.id)}
-                  >
-                    <option value="" key="0" />
-                    {manouverRequests
-                      ? manouverRequests.map(otherEntity => (
-                          <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.title}
-                          </option>
-                        ))
-                      : null}
-                  </AvInput>
-                </AvGroup>
-                <AvGroup>
-                  <Label for="client-contract">
-                    <Translate contentKey="grupoAmigoBackendApp.client.contract">Contract</Translate>
-                  </Label>
-                  <AvInput
-                    id="client-contract"
+                    id="client-contracts"
                     type="select"
                     multiple
                     className="form-control"
@@ -286,11 +243,11 @@ export class ClientUpdate extends React.Component<IClientUpdateProps, IClientUpd
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label for="client-serviceQuote">
-                    <Translate contentKey="grupoAmigoBackendApp.client.serviceQuote">Service Quote</Translate>
+                  <Label for="client-serviceQuotes">
+                    <Translate contentKey="grupoAmigoBackendApp.client.serviceQuotes">Service Quotes</Translate>
                   </Label>
                   <AvInput
-                    id="client-serviceQuote"
+                    id="client-serviceQuotes"
                     type="select"
                     multiple
                     className="form-control"
@@ -332,7 +289,6 @@ export class ClientUpdate extends React.Component<IClientUpdateProps, IClientUpd
 const mapStateToProps = (storeState: IRootState) => ({
   contactCards: storeState.contactCard.entities,
   locations: storeState.location.entities,
-  manouverRequests: storeState.manouverRequest.entities,
   contracts: storeState.contract.entities,
   serviceQuotes: storeState.serviceQuote.entities,
   serviceRequests: storeState.serviceRequest.entities,
@@ -346,7 +302,6 @@ const mapStateToProps = (storeState: IRootState) => ({
 const mapDispatchToProps = {
   getContactCards,
   getLocations,
-  getManouverRequests,
   getContracts,
   getServiceQuotes,
   getServiceRequests,

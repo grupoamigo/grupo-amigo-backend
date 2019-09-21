@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
 import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-// tslint:disable-next-line:no-unused-variable
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, setFileData, openFile, byteSize, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
@@ -16,7 +15,6 @@ import { ILoad } from 'app/shared/model/load.model';
 import { getEntities as getLoads } from 'app/entities/load/load.reducer';
 import { getEntity, updateEntity, createEntity, setBlob, reset } from './manouver-request.reducer';
 import { IManouverRequest } from 'app/shared/model/manouver-request.model';
-// tslint:disable-next-line:no-unused-variable
 import { convertDateTimeFromServer, convertDateTimeToServer } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 
@@ -28,7 +26,6 @@ export interface IManouverRequestUpdateState {
   originId: string;
   destinyId: string;
   manouverClientId: string;
-  clientId: string;
 }
 
 export class ManouverRequestUpdate extends React.Component<IManouverRequestUpdateProps, IManouverRequestUpdateState> {
@@ -39,7 +36,6 @@ export class ManouverRequestUpdate extends React.Component<IManouverRequestUpdat
       originId: '0',
       destinyId: '0',
       manouverClientId: '0',
-      clientId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }

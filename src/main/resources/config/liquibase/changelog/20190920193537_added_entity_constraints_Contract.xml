@@ -15,14 +15,14 @@
                                  referencedTableName="service_quote"/>
 
         <addForeignKeyConstraint baseColumnNames="contract_id"
-                                 baseTableName="contract_service"
-                                 constraintName="fk_contract_service_contract_id"
+                                 baseTableName="contract_service_title"
+                                 constraintName="fk_contract_service_title_contract_id"
                                  referencedColumnNames="id"
                                  referencedTableName="contract"/>
 
-        <addForeignKeyConstraint baseColumnNames="service_id"
-                                 baseTableName="contract_service"
-                                 constraintName="fk_contract_service_service_id"
+        <addForeignKeyConstraint baseColumnNames="service_title_id"
+                                 baseTableName="contract_service_title"
+                                 constraintName="fk_contract_service_title_service_title_id"
                                  referencedColumnNames="id"
                                  referencedTableName="service"/>
         

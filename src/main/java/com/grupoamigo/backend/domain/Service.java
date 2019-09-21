@@ -56,12 +56,12 @@ public class Service implements Serializable {
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "service_manouver",
+    @JoinTable(name = "service_manouvers",
                joinColumns = @JoinColumn(name = "service_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "manouver_id", referencedColumnName = "id"))
+               inverseJoinColumns = @JoinColumn(name = "manouvers_id", referencedColumnName = "id"))
     private Set<Manouver> manouvers = new HashSet<>();
 
-    @ManyToMany(mappedBy = "services")
+    @ManyToMany(mappedBy = "serviceTitles")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JsonIgnore
     private Set<Contract> contracts = new HashSet<>();
@@ -159,13 +159,13 @@ public class Service implements Serializable {
         return this;
     }
 
-    public Service addManouver(Manouver manouver) {
+    public Service addManouvers(Manouver manouver) {
         this.manouvers.add(manouver);
         manouver.getServices().add(this);
         return this;
     }
 
-    public Service removeManouver(Manouver manouver) {
+    public Service removeManouvers(Manouver manouver) {
         this.manouvers.remove(manouver);
         manouver.getServices().remove(this);
         return this;
@@ -186,13 +186,13 @@ public class Service implements Serializable {
 
     public Service addContract(Contract contract) {
         this.contracts.add(contract);
-        contract.getServices().add(this);
+        contract.getServiceTitles().add(this);
         return this;
     }
 
     public Service removeContract(Contract contract) {
         this.contracts.remove(contract);
-        contract.getServices().remove(this);
+        contract.getServiceTitles().remove(this);
         return this;
     }
 

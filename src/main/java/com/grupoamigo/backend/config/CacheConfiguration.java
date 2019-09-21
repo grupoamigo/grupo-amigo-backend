@@ -92,6 +92,7 @@ public class CacheConfiguration {
             createCache(cm, com.grupoamigo.backend.domain.Contract.class.getName() + ".services");
             createCache(cm, com.grupoamigo.backend.domain.Contract.class.getName() + ".suppliers");
             createCache(cm, com.grupoamigo.backend.domain.Contract.class.getName() + ".clients");
+            createCache(cm, com.grupoamigo.backend.domain.Contract.class.getName() + ".serviceTitles");
             // jhipster-needle-ehcache-add-entry
         };
     }

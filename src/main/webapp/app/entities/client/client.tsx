@@ -2,14 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Row, Table } from 'reactstrap';
-// tslint:disable-next-line:no-unused-variable
 import { Translate, ICrudGetAllAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './client.reducer';
 import { IClient } from 'app/shared/model/client.model';
-// tslint:disable-next-line:no-unused-variable
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IClientProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
@@ -33,7 +31,7 @@ export class Client extends React.Component<IClientProps> {
         </h2>
         <div className="table-responsive">
           {clientList && clientList.length > 0 ? (
-            <Table responsive>
+            <Table responsive aria-describedby="client-heading">
               <thead>
                 <tr>
                   <th>
@@ -58,13 +56,10 @@ export class Client extends React.Component<IClientProps> {
                     <Translate contentKey="grupoAmigoBackendApp.client.locations">Locations</Translate>
                   </th>
                   <th>
-                    <Translate contentKey="grupoAmigoBackendApp.client.manouverRequest">Manouver Request</Translate>
+                    <Translate contentKey="grupoAmigoBackendApp.client.contracts">Contracts</Translate>
                   </th>
                   <th>
-                    <Translate contentKey="grupoAmigoBackendApp.client.contract">Contract</Translate>
-                  </th>
-                  <th>
-                    <Translate contentKey="grupoAmigoBackendApp.client.serviceQuote">Service Quote</Translate>
+                    <Translate contentKey="grupoAmigoBackendApp.client.serviceQuotes">Service Quotes</Translate>
                   </th>
                   <th />
                 </tr>
@@ -101,16 +96,6 @@ export class Client extends React.Component<IClientProps> {
                             <span key={j}>
                               <Link to={`location/${val.id}`}>{val.address}</Link>
                               {j === client.locations.length - 1 ? '' : ', '}
-                            </span>
-                          ))
-                        : null}
-                    </td>
-                    <td>
-                      {client.manouverRequests
-                        ? client.manouverRequests.map((val, j) => (
-                            <span key={j}>
-                              <Link to={`manouver-request/${val.id}`}>{val.title}</Link>
-                              {j === client.manouverRequests.length - 1 ? '' : ', '}
                             </span>
                           ))
                         : null}

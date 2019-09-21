@@ -33,38 +33,26 @@
                                  referencedTableName="location"/>
         
         <addForeignKeyConstraint baseColumnNames="client_id"
-                                 baseTableName="client_manouver_request"
-                                 constraintName="fk_client_manouver_request_client_id"
+                                 baseTableName="client_contracts"
+                                 constraintName="fk_client_contracts_client_id"
                                  referencedColumnNames="id"
                                  referencedTableName="client"/>
 
-        <addForeignKeyConstraint baseColumnNames="manouver_request_id"
-                                 baseTableName="client_manouver_request"
-                                 constraintName="fk_client_manouver_request_manouver_request_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="manouver_request"/>
-        
-        <addForeignKeyConstraint baseColumnNames="client_id"
-                                 baseTableName="client_contract"
-                                 constraintName="fk_client_contract_client_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="client"/>
-
-        <addForeignKeyConstraint baseColumnNames="contract_id"
-                                 baseTableName="client_contract"
-                                 constraintName="fk_client_contract_contract_id"
+        <addForeignKeyConstraint baseColumnNames="contracts_id"
+                                 baseTableName="client_contracts"
+                                 constraintName="fk_client_contracts_contracts_id"
                                  referencedColumnNames="id"
                                  referencedTableName="contract"/>
         
         <addForeignKeyConstraint baseColumnNames="client_id"
-                                 baseTableName="client_service_quote"
-                                 constraintName="fk_client_service_quote_client_id"
+                                 baseTableName="client_service_quotes"
+                                 constraintName="fk_client_service_quotes_client_id"
                                  referencedColumnNames="id"
                                  referencedTableName="client"/>
 
-        <addForeignKeyConstraint baseColumnNames="service_quote_id"
-                                 baseTableName="client_service_quote"
-                                 constraintName="fk_client_service_quote_service_quote_id"
+        <addForeignKeyConstraint baseColumnNames="service_quotes_id"
+                                 baseTableName="client_service_quotes"
+                                 constraintName="fk_client_service_quotes_service_quotes_id"
                                  referencedColumnNames="id"
                                  referencedTableName="service_quote"/>
         

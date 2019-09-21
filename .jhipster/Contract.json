@@ -34,6 +34,11 @@
             "fieldTypeBlobContent": "any"
         },
         {
+            "fieldName": "qrCode",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
             "fieldName": "digitalFingerprint",
             "fieldType": "String"
         },
@@ -64,14 +69,14 @@
             "relationshipType": "many-to-many",
             "otherEntityName": "service",
             "otherEntityRelationshipName": "contract",
-            "relationshipName": "service",
+            "relationshipName": "serviceTitle",
             "otherEntityField": "title",
             "ownerSide": true
         },
         {
             "relationshipType": "many-to-many",
             "otherEntityName": "company",
-            "otherEntityRelationshipName": "contract",
+            "otherEntityRelationshipName": "contracts",
             "relationshipName": "supplier",
             "otherEntityField": "legalName",
             "ownerSide": false
@@ -79,7 +84,7 @@
         {
             "relationshipType": "many-to-many",
             "otherEntityName": "client",
-            "otherEntityRelationshipName": "contract",
+            "otherEntityRelationshipName": "contracts",
             "relationshipName": "client",
             "otherEntityField": "legalName",
             "ownerSide": false

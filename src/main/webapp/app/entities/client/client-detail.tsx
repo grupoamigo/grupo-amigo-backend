@@ -2,14 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
-// tslint:disable-next-line:no-unused-variable
 import { Translate, ICrudGetAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './client.reducer';
 import { IClient } from 'app/shared/model/client.model';
-// tslint:disable-next-line:no-unused-variable
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IClientDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
@@ -81,20 +79,7 @@ export class ClientDetail extends React.Component<IClientDetailProps> {
                 : null}
             </dd>
             <dt>
-              <Translate contentKey="grupoAmigoBackendApp.client.manouverRequest">Manouver Request</Translate>
-            </dt>
-            <dd>
-              {clientEntity.manouverRequests
-                ? clientEntity.manouverRequests.map((val, i) => (
-                    <span key={val.id}>
-                      <a>{val.title}</a>
-                      {i === clientEntity.manouverRequests.length - 1 ? '' : ', '}
-                    </span>
-                  ))
-                : null}
-            </dd>
-            <dt>
-              <Translate contentKey="grupoAmigoBackendApp.client.contract">Contract</Translate>
+              <Translate contentKey="grupoAmigoBackendApp.client.contracts">Contracts</Translate>
             </dt>
             <dd>
               {clientEntity.contracts
@@ -107,7 +92,7 @@ export class ClientDetail extends React.Component<IClientDetailProps> {
                 : null}
             </dd>
             <dt>
-              <Translate contentKey="grupoAmigoBackendApp.client.serviceQuote">Service Quote</Translate>
+              <Translate contentKey="grupoAmigoBackendApp.client.serviceQuotes">Service Quotes</Translate>
             </dt>
             <dd>
               {clientEntity.serviceQuotes

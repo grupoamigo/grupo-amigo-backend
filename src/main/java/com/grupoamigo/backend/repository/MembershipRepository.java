@@ -1,5 +1,4 @@
 package com.grupoamigo.backend.repository;
-
 import com.grupoamigo.backend.domain.Membership;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;

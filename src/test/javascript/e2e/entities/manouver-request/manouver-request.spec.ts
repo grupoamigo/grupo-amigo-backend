@@ -1,10 +1,8 @@
-/* tslint:disable no-unused-expression */
 import { browser, element, by } from 'protractor';
 
 import NavBarPage from './../../page-objects/navbar-page';
 import SignInPage from './../../page-objects/signin-page';
-import ManouverRequestComponentsPage from './manouver-request.page-object';
-import { ManouverRequestDeleteDialog } from './manouver-request.page-object';
+import ManouverRequestComponentsPage, { ManouverRequestDeleteDialog } from './manouver-request.page-object';
 import ManouverRequestUpdatePage from './manouver-request-update.page-object';
 import { waitUntilDisplayed, waitUntilHidden } from '../../util/utils';
 import path from 'path';

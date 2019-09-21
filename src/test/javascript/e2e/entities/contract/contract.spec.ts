@@ -1,10 +1,8 @@
-/* tslint:disable no-unused-expression */
 import { browser, element, by, protractor } from 'protractor';
 
 import NavBarPage from './../../page-objects/navbar-page';
 import SignInPage from './../../page-objects/signin-page';
-import ContractComponentsPage from './contract.page-object';
-import { ContractDeleteDialog } from './contract.page-object';
+import ContractComponentsPage, { ContractDeleteDialog } from './contract.page-object';
 import ContractUpdatePage from './contract-update.page-object';
 import { waitUntilDisplayed, waitUntilHidden } from '../../util/utils';
 import path from 'path';
@@ -56,6 +54,7 @@ describe('Contract e2e test', () => {
       expect(await contractUpdatePage.getLegalProseInput()).to.match(/legalProse/);
       await contractUpdatePage.setSignatureInput(absolutePath);
       await contractUpdatePage.setContractFileInput(absolutePath);
+      await contractUpdatePage.setQrCodeInput(absolutePath);
       await contractUpdatePage.setDigitalFingerprintInput('digitalFingerprint');
       expect(await contractUpdatePage.getDigitalFingerprintInput()).to.match(/digitalFingerprint/);
       await contractUpdatePage.setDateSignedInput('01/01/2001' + protractor.Key.TAB + '02:30AM');
@@ -64,7 +63,7 @@ describe('Contract e2e test', () => {
       expect(await contractUpdatePage.getExpirationDateInput()).to.eq('2001-01-01');
       await contractUpdatePage.statusSelectLastOption();
       await contractUpdatePage.serviceQuoteSelectLastOption();
-      // contractUpdatePage.serviceSelectLastOption();
+      // contractUpdatePage.serviceTitleSelectLastOption();
       await waitUntilDisplayed(contractUpdatePage.getSaveButton());
       await contractUpdatePage.save();
       await waitUntilHidden(contractUpdatePage.getSaveButton());

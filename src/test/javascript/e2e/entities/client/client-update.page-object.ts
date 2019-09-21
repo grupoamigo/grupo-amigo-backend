@@ -10,9 +10,8 @@ export default class ClientUpdatePage {
   internalNotesInput: ElementFinder = element(by.css('input#client-internalNotes'));
   contactCardsSelect: ElementFinder = element(by.css('select#client-contactCards'));
   locationsSelect: ElementFinder = element(by.css('select#client-locations'));
-  manouverRequestSelect: ElementFinder = element(by.css('select#client-manouverRequest'));
-  contractSelect: ElementFinder = element(by.css('select#client-contract'));
-  serviceQuoteSelect: ElementFinder = element(by.css('select#client-serviceQuote'));
+  contractsSelect: ElementFinder = element(by.css('select#client-contracts'));
+  serviceQuotesSelect: ElementFinder = element(by.css('select#client-serviceQuotes'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -94,61 +93,42 @@ export default class ClientUpdatePage {
     return this.locationsSelect.element(by.css('option:checked')).getText();
   }
 
-  async manouverRequestSelectLastOption() {
-    await this.manouverRequestSelect
+  async contractsSelectLastOption() {
+    await this.contractsSelect
       .all(by.tagName('option'))
       .last()
       .click();
   }
 
-  async manouverRequestSelectOption(option) {
-    await this.manouverRequestSelect.sendKeys(option);
+  async contractsSelectOption(option) {
+    await this.contractsSelect.sendKeys(option);
   }
 
-  getManouverRequestSelect() {
-    return this.manouverRequestSelect;
+  getContractsSelect() {
+    return this.contractsSelect;
   }
 
-  async getManouverRequestSelectedOption() {
-    return this.manouverRequestSelect.element(by.css('option:checked')).getText();
+  async getContractsSelectedOption() {
+    return this.contractsSelect.element(by.css('option:checked')).getText();
   }
 
-  async contractSelectLastOption() {
-    await this.contractSelect
+  async serviceQuotesSelectLastOption() {
+    await this.serviceQuotesSelect
       .all(by.tagName('option'))
       .last()
       .click();
   }
 
-  async contractSelectOption(option) {
-    await this.contractSelect.sendKeys(option);
+  async serviceQuotesSelectOption(option) {
+    await this.serviceQuotesSelect.sendKeys(option);
   }
 
-  getContractSelect() {
-    return this.contractSelect;
+  getServiceQuotesSelect() {
+    return this.serviceQuotesSelect;
   }
 
-  async getContractSelectedOption() {
-    return this.contractSelect.element(by.css('option:checked')).getText();
-  }
-
-  async serviceQuoteSelectLastOption() {
-    await this.serviceQuoteSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
-  }
-
-  async serviceQuoteSelectOption(option) {
-    await this.serviceQuoteSelect.sendKeys(option);
-  }
-
-  getServiceQuoteSelect() {
-    return this.serviceQuoteSelect;
-  }
-
-  async getServiceQuoteSelectedOption() {
-    return this.serviceQuoteSelect.element(by.css('option:checked')).getText();
+  async getServiceQuotesSelectedOption() {
+    return this.serviceQuotesSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {

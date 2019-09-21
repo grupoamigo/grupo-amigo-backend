@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
+    
     <!--
         Added the entity Membership.
     -->
@@ -18,23 +18,18 @@
             <column name="title" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <column name="price" type="${floatType}">
                 <constraints nullable="true" />
             </column>
-
             <column name="currency" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <column name="created" type="datetime">
                 <constraints nullable="true" />
             </column>
-
             <column name="expires" type="date">
                 <constraints nullable="true" />
             </column>
-
             <column name="type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -44,10 +39,8 @@
             <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-
         <dropDefaultValue tableName="membership" columnName="created" columnDataType="datetime"/>
     </changeSet>
 

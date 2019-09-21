@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
+    
     <!--
         Added the entity Service.
     -->
@@ -18,32 +18,26 @@
             <column name="title" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="description" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="type" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="unit" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="status" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-
     </changeSet>
 
     <changeSet id="20190920193534-1-relations" author="jhipster">
 
-        <createTable tableName="service_manouver">
-            <column name="manouver_id" type="bigint">
+        <createTable tableName="service_manouvers">
+            <column name="manouvers_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
             <column name="service_id" type="bigint">
@@ -51,7 +45,7 @@
             </column>
         </createTable>
 
-        <addPrimaryKey columnNames="service_id, manouver_id" tableName="service_manouver"/>
+        <addPrimaryKey columnNames="service_id, manouvers_id" tableName="service_manouvers"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

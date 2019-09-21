@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
+    
     <!--
         Added the entity Client.
     -->
@@ -18,22 +18,17 @@
             <column name="legal_name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="member_since" type="datetime">
                 <constraints nullable="true" />
             </column>
-
             <column name="status" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <column name="internal_notes" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-
         <dropDefaultValue tableName="client" columnName="member_since" columnDataType="datetime"/>
     </changeSet>
 
@@ -61,8 +56,8 @@
 
         <addPrimaryKey columnNames="client_id, locations_id" tableName="client_locations"/>
         
-        <createTable tableName="client_manouver_request">
-            <column name="manouver_request_id" type="bigint">
+        <createTable tableName="client_contracts">
+            <column name="contracts_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
             <column name="client_id" type="bigint">
@@ -70,10 +65,10 @@
             </column>
         </createTable>
 
-        <addPrimaryKey columnNames="client_id, manouver_request_id" tableName="client_manouver_request"/>
+        <addPrimaryKey columnNames="client_id, contracts_id" tableName="client_contracts"/>
         
-        <createTable tableName="client_contract">
-            <column name="contract_id" type="bigint">
+        <createTable tableName="client_service_quotes">
+            <column name="service_quotes_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
             <column name="client_id" type="bigint">
@@ -81,18 +76,7 @@
             </column>
         </createTable>
 
-        <addPrimaryKey columnNames="client_id, contract_id" tableName="client_contract"/>
-        
-        <createTable tableName="client_service_quote">
-            <column name="service_quote_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="client_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="client_id, service_quote_id" tableName="client_service_quote"/>
+        <addPrimaryKey columnNames="client_id, service_quotes_id" tableName="client_service_quotes"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

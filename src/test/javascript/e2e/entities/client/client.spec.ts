@@ -1,10 +1,8 @@
-/* tslint:disable no-unused-expression */
 import { browser, element, by, protractor } from 'protractor';
 
 import NavBarPage from './../../page-objects/navbar-page';
 import SignInPage from './../../page-objects/signin-page';
-import ClientComponentsPage from './client.page-object';
-import { ClientDeleteDialog } from './client.page-object';
+import ClientComponentsPage, { ClientDeleteDialog } from './client.page-object';
 import ClientUpdatePage from './client-update.page-object';
 import { waitUntilDisplayed, waitUntilHidden } from '../../util/utils';
 
@@ -55,9 +53,8 @@ describe('Client e2e test', () => {
       expect(await clientUpdatePage.getInternalNotesInput()).to.match(/internalNotes/);
       // clientUpdatePage.contactCardsSelectLastOption();
       // clientUpdatePage.locationsSelectLastOption();
-      // clientUpdatePage.manouverRequestSelectLastOption();
-      // clientUpdatePage.contractSelectLastOption();
-      // clientUpdatePage.serviceQuoteSelectLastOption();
+      // clientUpdatePage.contractsSelectLastOption();
+      // clientUpdatePage.serviceQuotesSelectLastOption();
       await waitUntilDisplayed(clientUpdatePage.getSaveButton());
       await clientUpdatePage.save();
       await waitUntilHidden(clientUpdatePage.getSaveButton());

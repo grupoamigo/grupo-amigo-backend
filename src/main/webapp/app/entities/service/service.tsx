@@ -2,14 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Row, Table } from 'reactstrap';
-// tslint:disable-next-line:no-unused-variable
 import { Translate, ICrudGetAllAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './service.reducer';
 import { IService } from 'app/shared/model/service.model';
-// tslint:disable-next-line:no-unused-variable
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IServiceProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
@@ -33,7 +31,7 @@ export class Service extends React.Component<IServiceProps> {
         </h2>
         <div className="table-responsive">
           {serviceList && serviceList.length > 0 ? (
-            <Table responsive>
+            <Table responsive aria-describedby="service-heading">
               <thead>
                 <tr>
                   <th>
@@ -55,7 +53,7 @@ export class Service extends React.Component<IServiceProps> {
                     <Translate contentKey="grupoAmigoBackendApp.service.status">Status</Translate>
                   </th>
                   <th>
-                    <Translate contentKey="grupoAmigoBackendApp.service.manouver">Manouver</Translate>
+                    <Translate contentKey="grupoAmigoBackendApp.service.manouvers">Manouvers</Translate>
                   </th>
                   <th />
                 </tr>

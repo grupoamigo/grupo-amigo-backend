@@ -58,6 +58,13 @@ public class Contract implements Serializable {
     @Column(name = "contract_file_content_type")
     private String contractFileContentType;
 
+    @Lob
+    @Column(name = "qr_code")
+    private byte[] qrCode;
+
+    @Column(name = "qr_code_content_type")
+    private String qrCodeContentType;
+
     @Column(name = "digital_fingerprint")
     private String digitalFingerprint;
 
@@ -77,10 +84,10 @@ public class Contract implements Serializable {
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "contract_service",
+    @JoinTable(name = "contract_service_title",
                joinColumns = @JoinColumn(name = "contract_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "service_id", referencedColumnName = "id"))
-    private Set<Service> services = new HashSet<>();
+               inverseJoinColumns = @JoinColumn(name = "service_title_id", referencedColumnName = "id"))
+    private Set<Service> serviceTitles = new HashSet<>();
 
     @ManyToMany(mappedBy = "contracts")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -192,6 +199,32 @@ public class Contract implements Serializable {
         this.contractFileContentType = contractFileContentType;
     }
 
+    public byte[] getQrCode() {
+        return qrCode;
+    }
+
+    public Contract qrCode(byte[] qrCode) {
+        this.qrCode = qrCode;
+        return this;
+    }
+
+    public void setQrCode(byte[] qrCode) {
+        this.qrCode = qrCode;
+    }
+
+    public String getQrCodeContentType() {
+        return qrCodeContentType;
+    }
+
+    public Contract qrCodeContentType(String qrCodeContentType) {
+        this.qrCodeContentType = qrCodeContentType;
+        return this;
+    }
+
+    public void setQrCodeContentType(String qrCodeContentType) {
+        this.qrCodeContentType = qrCodeContentType;
+    }
+
     public String getDigitalFingerprint() {
         return digitalFingerprint;
     }
@@ -257,29 +290,29 @@ public class Contract implements Serializable {
         this.serviceQuote = serviceQuote;
     }
 
-    public Set<Service> getServices() {
-        return services;
+    public Set<Service> getServiceTitles() {
+        return serviceTitles;
     }
 
-    public Contract services(Set<Service> services) {
-        this.services = services;
+    public Contract serviceTitles(Set<Service> services) {
+        this.serviceTitles = services;
         return this;
     }
 
-    public Contract addService(Service service) {
-        this.services.add(service);
+    public Contract addServiceTitle(Service service) {
+        this.serviceTitles.add(service);
         service.getContracts().add(this);
         return this;
     }
 
-    public Contract removeService(Service service) {
-        this.services.remove(service);
+    public Contract removeServiceTitle(Service service) {
+        this.serviceTitles.remove(service);
         service.getContracts().remove(this);
         return this;
     }
 
-    public void setServices(Set<Service> services) {
-        this.services = services;
+    public void setServiceTitles(Set<Service> services) {
+        this.serviceTitles = services;
     }
 
     public Set<Company> getSuppliers() {
@@ -360,6 +393,8 @@ public class Contract implements Serializable {
             ", signatureContentType='" + getSignatureContentType() + "'" +
             ", contractFile='" + getContractFile() + "'" +
             ", contractFileContentType='" + getContractFileContentType() + "'" +
+            ", qrCode='" + getQrCode() + "'" +
+            ", qrCodeContentType='" + getQrCodeContentType() + "'" +
             ", digitalFingerprint='" + getDigitalFingerprint() + "'" +
             ", dateSigned='" + getDateSigned() + "'" +
             ", expirationDate='" + getExpirationDate() + "'" +

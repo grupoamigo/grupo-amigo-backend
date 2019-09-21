@@ -13,7 +13,7 @@ export default class CompanyUpdatePage {
   servicesSelect: ElementFinder = element(by.css('select#company-services'));
   locationsSelect: ElementFinder = element(by.css('select#company-locations'));
   manouversSelect: ElementFinder = element(by.css('select#company-manouvers'));
-  contractSelect: ElementFinder = element(by.css('select#company-contract'));
+  contractsSelect: ElementFinder = element(by.css('select#company-contracts'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -152,23 +152,23 @@ export default class CompanyUpdatePage {
     return this.manouversSelect.element(by.css('option:checked')).getText();
   }
 
-  async contractSelectLastOption() {
-    await this.contractSelect
+  async contractsSelectLastOption() {
+    await this.contractsSelect
       .all(by.tagName('option'))
       .last()
       .click();
   }
 
-  async contractSelectOption(option) {
-    await this.contractSelect.sendKeys(option);
+  async contractsSelectOption(option) {
+    await this.contractsSelect.sendKeys(option);
   }
 
-  getContractSelect() {
-    return this.contractSelect;
+  getContractsSelect() {
+    return this.contractsSelect;
   }
 
-  async getContractSelectedOption() {
-    return this.contractSelect.element(by.css('option:checked')).getText();
+  async getContractsSelectedOption() {
+    return this.contractsSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {

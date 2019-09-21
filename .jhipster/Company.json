@@ -74,7 +74,7 @@
             "relationshipType": "many-to-many",
             "otherEntityName": "contract",
             "otherEntityRelationshipName": "supplier",
-            "relationshipName": "contract",
+            "relationshipName": "contracts",
             "otherEntityField": "title",
             "ownerSide": true
         },

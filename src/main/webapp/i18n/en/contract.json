@@ -21,12 +21,13 @@
       "legalProse": "Legal Prose",
       "signature": "Signature",
       "contractFile": "Contract File",
+      "qrCode": "Qr Code",
       "digitalFingerprint": "Digital Fingerprint",
       "dateSigned": "Date Signed",
       "expirationDate": "Expiration Date",
       "status": "Status",
       "serviceQuote": "Service Quote",
-      "service": "Service",
+      "serviceTitle": "Service Title",
       "supplier": "Supplier",
       "client": "Client"
     }

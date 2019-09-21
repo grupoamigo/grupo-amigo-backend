@@ -58,23 +58,16 @@ public class Client implements Serializable {
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "client_manouver_request",
+    @JoinTable(name = "client_contracts",
                joinColumns = @JoinColumn(name = "client_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "manouver_request_id", referencedColumnName = "id"))
-    private Set<ManouverRequest> manouverRequests = new HashSet<>();
-
-    @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "client_contract",
-               joinColumns = @JoinColumn(name = "client_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "contract_id", referencedColumnName = "id"))
+               inverseJoinColumns = @JoinColumn(name = "contracts_id", referencedColumnName = "id"))
     private Set<Contract> contracts = new HashSet<>();
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "client_service_quote",
+    @JoinTable(name = "client_service_quotes",
                joinColumns = @JoinColumn(name = "client_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "service_quote_id", referencedColumnName = "id"))
+               inverseJoinColumns = @JoinColumn(name = "service_quotes_id", referencedColumnName = "id"))
     private Set<ServiceQuote> serviceQuotes = new HashSet<>();
 
     @OneToOne(mappedBy = "client")
@@ -200,31 +193,6 @@ public class Client implements Serializable {
         this.locations = locations;
     }
 
-    public Set<ManouverRequest> getManouverRequests() {
-        return manouverRequests;
-    }
-
-    public Client manouverRequests(Set<ManouverRequest> manouverRequests) {
-        this.manouverRequests = manouverRequests;
-        return this;
-    }
-
-    public Client addManouverRequest(ManouverRequest manouverRequest) {
-        this.manouverRequests.add(manouverRequest);
-        manouverRequest.getClients().add(this);
-        return this;
-    }
-
-    public Client removeManouverRequest(ManouverRequest manouverRequest) {
-        this.manouverRequests.remove(manouverRequest);
-        manouverRequest.getClients().remove(this);
-        return this;
-    }
-
-    public void setManouverRequests(Set<ManouverRequest> manouverRequests) {
-        this.manouverRequests = manouverRequests;
-    }
-
     public Set<Contract> getContracts() {
         return contracts;
     }
@@ -234,13 +202,13 @@ public class Client implements Serializable {
         return this;
     }
 
-    public Client addContract(Contract contract) {
+    public Client addContracts(Contract contract) {
         this.contracts.add(contract);
         contract.getClients().add(this);
         return this;
     }
 
-    public Client removeContract(Contract contract) {
+    public Client removeContracts(Contract contract) {
         this.contracts.remove(contract);
         contract.getClients().remove(this);
         return this;
@@ -259,13 +227,13 @@ public class Client implements Serializable {
         return this;
     }
 
-    public Client addServiceQuote(ServiceQuote serviceQuote) {
+    public Client addServiceQuotes(ServiceQuote serviceQuote) {
         this.serviceQuotes.add(serviceQuote);
         serviceQuote.getClients().add(this);
         return this;
     }
 
-    public Client removeServiceQuote(ServiceQuote serviceQuote) {
+    public Client removeServiceQuotes(ServiceQuote serviceQuote) {
         this.serviceQuotes.remove(serviceQuote);
         serviceQuote.getClients().remove(this);
         return this;

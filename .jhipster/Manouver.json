@@ -49,7 +49,7 @@
         {
             "relationshipType": "many-to-many",
             "otherEntityName": "service",
-            "otherEntityRelationshipName": "manouver",
+            "otherEntityRelationshipName": "manouvers",
             "relationshipName": "service",
             "otherEntityField": "title",
             "ownerSide": false

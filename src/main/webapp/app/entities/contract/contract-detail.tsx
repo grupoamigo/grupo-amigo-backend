@@ -2,14 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
-// tslint:disable-next-line:no-unused-variable
 import { Translate, ICrudGetAction, openFile, byteSize, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './contract.reducer';
 import { IContract } from 'app/shared/model/contract.model';
-// tslint:disable-next-line:no-unused-variable
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IContractDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
@@ -84,6 +82,23 @@ export class ContractDetail extends React.Component<IContractDetailProps> {
               ) : null}
             </dd>
             <dt>
+              <span id="qrCode">
+                <Translate contentKey="grupoAmigoBackendApp.contract.qrCode">Qr Code</Translate>
+              </span>
+            </dt>
+            <dd>
+              {contractEntity.qrCode ? (
+                <div>
+                  <a onClick={openFile(contractEntity.qrCodeContentType, contractEntity.qrCode)}>
+                    <img src={`data:${contractEntity.qrCodeContentType};base64,${contractEntity.qrCode}`} style={{ maxHeight: '30px' }} />
+                  </a>
+                  <span>
+                    {contractEntity.qrCodeContentType}, {byteSize(contractEntity.qrCode)}
+                  </span>
+                </div>
+              ) : null}
+            </dd>
+            <dt>
               <span id="digitalFingerprint">
                 <Translate contentKey="grupoAmigoBackendApp.contract.digitalFingerprint">Digital Fingerprint</Translate>
               </span>
@@ -116,14 +131,14 @@ export class ContractDetail extends React.Component<IContractDetailProps> {
             </dt>
             <dd>{contractEntity.serviceQuote ? contractEntity.serviceQuote.title : ''}</dd>
             <dt>
-              <Translate contentKey="grupoAmigoBackendApp.contract.service">Service</Translate>
+              <Translate contentKey="grupoAmigoBackendApp.contract.serviceTitle">Service Title</Translate>
             </dt>
             <dd>
-              {contractEntity.services
-                ? contractEntity.services.map((val, i) => (
+              {contractEntity.serviceTitles
+                ? contractEntity.serviceTitles.map((val, i) => (
                     <span key={val.id}>
                       <a>{val.title}</a>
-                      {i === contractEntity.services.length - 1 ? '' : ', '}
+                      {i === contractEntity.serviceTitles.length - 1 ? '' : ', '}
                     </span>
                   ))
                 : null}

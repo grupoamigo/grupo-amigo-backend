@@ -1,10 +1,8 @@
-/* tslint:disable no-unused-expression */
 import { browser, element, by } from 'protractor';
 
 import NavBarPage from './../../page-objects/navbar-page';
 import SignInPage from './../../page-objects/signin-page';
-import CompanyComponentsPage from './company.page-object';
-import { CompanyDeleteDialog } from './company.page-object';
+import CompanyComponentsPage, { CompanyDeleteDialog } from './company.page-object';
 import CompanyUpdatePage from './company-update.page-object';
 import { waitUntilDisplayed, waitUntilHidden } from '../../util/utils';
 import path from 'path';
@@ -60,7 +58,7 @@ describe('Company e2e test', () => {
       // companyUpdatePage.servicesSelectLastOption();
       // companyUpdatePage.locationsSelectLastOption();
       // companyUpdatePage.manouversSelectLastOption();
-      // companyUpdatePage.contractSelectLastOption();
+      // companyUpdatePage.contractsSelectLastOption();
       await waitUntilDisplayed(companyUpdatePage.getSaveButton());
       await companyUpdatePage.save();
       await waitUntilHidden(companyUpdatePage.getSaveButton());

@@ -45,14 +45,14 @@
             "relationshipType": "many-to-many",
             "otherEntityName": "manouver",
             "otherEntityRelationshipName": "service",
-            "relationshipName": "manouver",
+            "relationshipName": "manouvers",
             "otherEntityField": "title",
             "ownerSide": true
         },
         {
             "relationshipType": "many-to-many",
             "otherEntityName": "contract",
-            "otherEntityRelationshipName": "service",
+            "otherEntityRelationshipName": "serviceTitle",
             "relationshipName": "contract",
             "otherEntityField": "title",
             "ownerSide": false

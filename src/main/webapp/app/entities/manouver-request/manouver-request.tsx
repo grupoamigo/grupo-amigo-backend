@@ -2,14 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Row, Table } from 'reactstrap';
-// tslint:disable-next-line:no-unused-variable
 import { openFile, byteSize, Translate, ICrudGetAllAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './manouver-request.reducer';
 import { IManouverRequest } from 'app/shared/model/manouver-request.model';
-// tslint:disable-next-line:no-unused-variable
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IManouverRequestProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
@@ -33,7 +31,7 @@ export class ManouverRequest extends React.Component<IManouverRequestProps> {
         </h2>
         <div className="table-responsive">
           {manouverRequestList && manouverRequestList.length > 0 ? (
-            <Table responsive>
+            <Table responsive aria-describedby="manouver-request-heading">
               <thead>
                 <tr>
                   <th>

@@ -9,12 +9,13 @@ export default class ContractUpdatePage {
   legalProseInput: ElementFinder = element(by.css('input#contract-legalProse'));
   signatureInput: ElementFinder = element(by.css('input#file_signature'));
   contractFileInput: ElementFinder = element(by.css('input#file_contractFile'));
+  qrCodeInput: ElementFinder = element(by.css('input#file_qrCode'));
   digitalFingerprintInput: ElementFinder = element(by.css('input#contract-digitalFingerprint'));
   dateSignedInput: ElementFinder = element(by.css('input#contract-dateSigned'));
   expirationDateInput: ElementFinder = element(by.css('input#contract-expirationDate'));
   statusSelect: ElementFinder = element(by.css('select#contract-status'));
   serviceQuoteSelect: ElementFinder = element(by.css('select#contract-serviceQuote'));
-  serviceSelect: ElementFinder = element(by.css('select#contract-service'));
+  serviceTitleSelect: ElementFinder = element(by.css('select#contract-serviceTitle'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -64,6 +65,14 @@ export default class ContractUpdatePage {
 
   async getContractFileInput() {
     return this.contractFileInput.getAttribute('value');
+  }
+
+  async setQrCodeInput(qrCode) {
+    await this.qrCodeInput.sendKeys(qrCode);
+  }
+
+  async getQrCodeInput() {
+    return this.qrCodeInput.getAttribute('value');
   }
 
   async setDigitalFingerprintInput(digitalFingerprint) {
@@ -123,23 +132,23 @@ export default class ContractUpdatePage {
     return this.serviceQuoteSelect.element(by.css('option:checked')).getText();
   }
 
-  async serviceSelectLastOption() {
-    await this.serviceSelect
+  async serviceTitleSelectLastOption() {
+    await this.serviceTitleSelect
       .all(by.tagName('option'))
       .last()
       .click();
   }
 
-  async serviceSelectOption(option) {
-    await this.serviceSelect.sendKeys(option);
+  async serviceTitleSelectOption(option) {
+    await this.serviceTitleSelect.sendKeys(option);
   }
 
-  getServiceSelect() {
-    return this.serviceSelect;
+  getServiceTitleSelect() {
+    return this.serviceTitleSelect;
   }
 
-  async getServiceSelectedOption() {
-    return this.serviceSelect.element(by.css('option:checked')).getText();
+  async getServiceTitleSelectedOption() {
+    return this.serviceTitleSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {

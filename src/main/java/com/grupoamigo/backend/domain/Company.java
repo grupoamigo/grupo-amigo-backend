@@ -81,9 +81,9 @@ public class Company implements Serializable {
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "company_contract",
+    @JoinTable(name = "company_contracts",
                joinColumns = @JoinColumn(name = "company_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "contract_id", referencedColumnName = "id"))
+               inverseJoinColumns = @JoinColumn(name = "contracts_id", referencedColumnName = "id"))
     private Set<Contract> contracts = new HashSet<>();
 
     @OneToOne(mappedBy = "company")
@@ -286,13 +286,13 @@ public class Company implements Serializable {
         return this;
     }
 
-    public Company addContract(Contract contract) {
+    public Company addContracts(Contract contract) {
         this.contracts.add(contract);
         contract.getSuppliers().add(this);
         return this;
     }
 
-    public Company removeContract(Contract contract) {
+    public Company removeContracts(Contract contract) {
         this.contracts.remove(contract);
         contract.getSuppliers().remove(this);
         return this;

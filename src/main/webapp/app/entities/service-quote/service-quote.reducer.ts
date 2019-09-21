@@ -87,7 +87,7 @@ export default (state: ServiceQuoteState = initialState, action): ServiceQuoteSt
         updateSuccess: true,
         entity: {}
       };
-    case ACTION_TYPES.SET_BLOB:
+    case ACTION_TYPES.SET_BLOB: {
       const { name, data, contentType } = action.payload;
       return {
         ...state,
@@ -97,6 +97,7 @@ export default (state: ServiceQuoteState = initialState, action): ServiceQuoteSt
           [name + 'ContentType']: contentType
         }
       };
+    }
     case ACTION_TYPES.RESET:
       return {
         ...initialState

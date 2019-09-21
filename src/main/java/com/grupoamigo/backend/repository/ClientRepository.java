@@ -1,5 +1,4 @@
 package com.grupoamigo.backend.repository;
-
 import com.grupoamigo.backend.domain.Client;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,14 +15,14 @@ import java.util.Optional;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
-    @Query(value = "select distinct client from Client client left join fetch client.contactCards left join fetch client.locations left join fetch client.manouverRequests left join fetch client.contracts left join fetch client.serviceQuotes",
+    @Query(value = "select distinct client from Client client left join fetch client.contactCards left join fetch client.locations left join fetch client.contracts left join fetch client.serviceQuotes",
         countQuery = "select count(distinct client) from Client client")
     Page<Client> findAllWithEagerRelationships(Pageable pageable);
 
-    @Query("select distinct client from Client client left join fetch client.contactCards left join fetch client.locations left join fetch client.manouverRequests left join fetch client.contracts left join fetch client.serviceQuotes")
+    @Query("select distinct client from Client client left join fetch client.contactCards left join fetch client.locations left join fetch client.contracts left join fetch client.serviceQuotes")
     List<Client> findAllWithEagerRelationships();
 
-    @Query("select client from Client client left join fetch client.contactCards left join fetch client.locations left join fetch client.manouverRequests left join fetch client.contracts left join fetch client.serviceQuotes where client.id =:id")
+    @Query("select client from Client client left join fetch client.contactCards left join fetch client.locations left join fetch client.contracts left join fetch client.serviceQuotes where client.id =:id")
     Optional<Client> findOneWithEagerRelationships(@Param("id") Long id);
 
 }

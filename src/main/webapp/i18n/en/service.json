@@ -21,7 +21,7 @@
       "type": "Type",
       "unit": "Unit",
       "status": "Status",
-      "manouver": "Manouver",
+      "manouvers": "Manouvers",
       "contract": "Contract",
       "company": "Company",
       "serviceRequest": "Service Request"
